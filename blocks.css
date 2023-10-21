@@ -12,7 +12,7 @@ body {
   .rectangle1 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
-    background-color: black;
+    background-color: darkred;
     position: absolute;
     top: 200px;
     left: 530px;
@@ -20,7 +20,7 @@ body {
   .rectangle2 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
-    background-color: black;
+    background-color: darkred;
     position: absolute;
     top: 250px;
     left: 530px;
@@ -28,7 +28,7 @@ body {
   .rectangle3 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
-    background-color: black;
+    background-color: darkred;
     position: absolute;
     top: 300px;
     left: 530px;
@@ -36,7 +36,7 @@ body {
   .rectangle4 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
-    background-color: black;
+    background-color: darkred;
     position: absolute;
     top: 350px;
     left: 530px;
@@ -44,7 +44,7 @@ body {
   .rectangle5 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
-    background-color: black;
+    background-color: darkred;
     position: absolute;
     top: 400px;
     left: 530px;
@@ -52,7 +52,7 @@ body {
   .rectangle11 {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-    background-color: blue;
+    background-color: #AC00AC;
     position: absolute;
     top: 205px;
     left: 535px;
@@ -60,7 +60,7 @@ body {
   .rectangle21 {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-    background-color: blue;
+    background-color: green;
     position: absolute;
     top: 255px;
     left: 535px;
@@ -68,7 +68,7 @@ body {
   .rectangle31 {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-    background-color: blue;
+    background-color: yellow;
     position: absolute;
     top: 305px;
     left: 535px;
@@ -76,7 +76,7 @@ body {
   .rectangle41 {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-    background-color: blue;
+    background-color: orange;
     position: absolute;
     top: 355px;
     left: 535px;
@@ -84,7 +84,7 @@ body {
   .rectangle51 {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-    background-color: blue;
+    background-color: red;
     position: absolute;
     top: 405px;
     left: 535px;
@@ -96,10 +96,10 @@ body {
     font-size: small;
     font-style:italic;
     font-weight: bold;
-    background-color: #555;
+    background-color: #111;
   }
   #board {
-    border: 5px solid #777;
+    border: 5px solid #222;
   }
   .container {
     margin-bottom: 20px;

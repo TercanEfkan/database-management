@@ -92,7 +92,7 @@ function drawSkills(skillsOnBoard, context) {
         context.fillStyle = color;
         context.fillRect(x, y, blockSize - 20, blockSize - 20);
         skill.row += 0.1;
-        if (skill.row > 50) {
+        if (skill.row > 21) {
             skillsOnBoard.splice(i, 1); // Remove the skill at index i
         }
     }
