@@ -3,6 +3,7 @@ var rows = 20;
 var cols = 30;
 var board;
 var context;
+var skillsOnBoard = [];
 var tableVelocity = 0;
 var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
@@ -13,13 +14,18 @@ const credits = document.getElementById('credits');
 let currentIndex = 0;
 
 class Block {
-    constructor(toughness, row, col) {
+    constructor(toughness, row, col, type) {
         this.row = row;
         this.col = col;
         this.toughness = toughness;
+        this. type = type;
     }
-    die() {
-
+}
+class Skill {
+    constructor(type, row, col) {
+        this.row = row;
+        this.col = col;
+        this.type = type;
     }
 }
 
@@ -42,25 +48,6 @@ window.onload = function () {
     setInterval(update, 1000 / 60); //100 milliseconds
 }
 
-
-function update() {
-    changeColor();
-    context.fillStyle = 'black';
-    context.fillRect(0, 0, board.width, board.height);
-
-    context.fillStyle = 'blue';
-    tableX += direction * 100; // move the table based on the direction of movement
-    if (tableX < 0) {
-        tableX = 0; // prevent the table from moving beyond the left border
-    } else if (tableX + tableSize.x > board.width) {
-        tableX = board.width - tableSize.x; // prevent the table from moving beyond the right border
-    }
-    context.fillRect(tableX, tableY, tableSize.x, tableSize.y);
-
-    drawBlocks(blocks, context)
-
-}
-
 function fillBlocks() {
 
     for (let i = 0; i < 5; i++) {
@@ -71,10 +58,42 @@ function fillBlocks() {
             let col1 = j * 2 + offset;
             let col2 = cols - 1 - j * 2 - offset;
 
-            let bl1 = new Block(6 - (i + 1), i, col1);
-            let bl2 = new Block(6 - (i + 1), i, col2);
+            let bl1 = new Block(6 - (i + 1), i, col1, 6 - (i + 1));
+            let bl2 = new Block(6 - (i + 1), i, col2, 6 - (i + 1));
             this.blocks.push(bl1);
             this.blocks.push(bl2);
+        }
+    }
+}
+function drawSkills(skillsOnBoard, context) {
+    for (let i = skillsOnBoard.length - 1; i >= 0; i--) {
+        let skill = skillsOnBoard[i];
+        let x = skill.col * blockSize;
+        let y = skill.row * blockSize;
+        let color;
+
+        switch (skill.type) {
+            case 1:
+                color = '#AC00AC';
+                break;
+            case 2:
+                color = 'green';
+                break;
+            case 3:
+                color = 'yellow';
+                break;
+            case 4:
+                color = 'orange';
+                break;
+            case 5:
+                color = 'red';
+                break;
+        }
+        context.fillStyle = color;
+        context.fillRect(x, y, blockSize - 20, blockSize - 20);
+        skill.row += 0.1;
+        if (skill.row > 50) {
+            skillsOnBoard.splice(i, 1); // Remove the skill at index i
         }
     }
 }
@@ -206,11 +225,16 @@ class Ball {
 
                 if (block.toughness <= 0) {
                     let rng = Math.floor(Math.random() * 10);
-                    if ( rng > 4) {
+                    let blk = blocks.splice(collidedBlockIndex, 1);
+                    if (rng > 4) {
                         /*collided block index ile skill spawn edilecek*/
+                        let skill = new Skill(blk[0].type, blk[0].row, blk[0].col); // Note the index [0] to access the first element in the blk array
+                        skillsOnBoard.push(skill);
+
                     }
-                    blocks.splice(collidedBlockIndex, 1);
+
                 }
+
             }
         }
         if (this.y - this.radius < 0) {
@@ -230,20 +254,37 @@ class Ball {
 
 var ball = new Ball(tableX + tableSize.x / 2, tableY - blockSize, 5, 5);
 
+function displaySkillsOnScreen(skillsOnBoard) {
+    const skillsDisplay = document.getElementById('skillsDisplay');
+    skillsDisplay.innerHTML = ''; // Clear any previous content
+
+    skillsOnBoard.forEach(function (skill) {
+        // Create a new paragraph for each skill and display its information
+        const skillInfo = document.createElement('p');
+        skillInfo.textContent = `Type: ${skill.type}, Row: ${skill.row}, Column: ${skill.col}`;
+
+        // Append the skill information to the display element
+        skillsDisplay.appendChild(skillInfo);
+    });
+}
 
 function changeColor() {
-  credits.style.color = colors[currentIndex];
-  currentIndex = (currentIndex + 1) % colors.length;
-  requestAnimationFrame(changeColor);
+    credits.style.color = colors[currentIndex];
+    currentIndex = (currentIndex + 1) % colors.length;
+    requestAnimationFrame(changeColor);
 }
 function update() {
+
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 
     context.fillStyle = "blue";
     context.fillRect(tableX, tableY, tableSize.x, tableSize.y);
 
+
     drawBlocks(blocks, context);
+    displaySkillsOnScreen(skillsOnBoard);
+    drawSkills(skillsOnBoard, context);
     tableX += direction * 5; // move the table based on the direction of movement
     if (tableX < 0) {
         tableX = 0; // prevent the table from moving beyond the left border
@@ -253,4 +294,5 @@ function update() {
     ball.draw(context);
     ball.move();
     ball.checkCollisions(blocks, table);
+
 }
