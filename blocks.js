@@ -287,7 +287,6 @@ function update() {
 
 
     drawBlocks(blocks, context);
-    displaySkillsOnScreen(skillsOnBoard);
     drawSkills(skillsOnBoard, context);
     tableX += direction * 5; // move the table based on the direction of movement
     if (tableX < 0) {
