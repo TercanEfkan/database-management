@@ -270,8 +270,9 @@ function displaySkillsOnScreen(skillsOnBoard) {
 }
 function updateSkills() {
     if(skillsOnBoard.length != 0){
+        var collidedSkillIndex = -1
         for (let i = 0; i < skillsOnBoard.length; i++) {
-            var collidedSkillIndex = -1
+            
             let skill = skillsOnBoard[i];
     
             if (
@@ -286,24 +287,25 @@ function updateSkills() {
         }
         if (collidedSkillIndex != -1) {
             var skl = skillsOnBoard.splice(collidedSkillIndex, 1);
-            switch (skl.type) {
+            var rectangleElement;
+            switch (skl[0].type) {
                 case 1:
-                    var rectangleElement = document.querySelector(".rectangle1");
+                    rectangleElement = document.querySelector(".rectangle1");
                     break;
                 case 2:
-                    var rectangleElement = document.querySelector(".rectangle2");
+                    rectangleElement = document.querySelector(".rectangle2");
                     break;
                 case 3:
-                    var rectangleElement = document.querySelector(".rectangle3");
+                    rectangleElement = document.querySelector(".rectangle3");
                     break;
                 case 4:
-                    var rectangleElement = document.querySelector(".rectangle4");
+                    rectangleElement = document.querySelector(".rectangle4");
                     break;
                 case 5:
-                    var rectangleElement = document.querySelector(".rectangle5");
+                    rectangleElement = document.querySelector(".rectangle5");
                     break;
             }
-            rectangleElement.color = "green";
+            rectangleElement.style.backgroundColor = "#50FF50";
         }
     
         drawSkills(skillsOnBoard, context);
