@@ -8,7 +8,9 @@ var tableVelocity = 0;
 var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
 var scoreParagraph = document.getElementById("score");
+var timeParagraph = document.getElementById("time");
 var score = 1000;
+var timeSpent = 0;
 const colors = ['red', 'blue', 'green', 'orange'];
 const credits = document.getElementById('credits');
 let currentIndex = 0;
@@ -99,7 +101,7 @@ function drawSkills(skillsOnBoard, context) {
 }
 
 function drawBlocks(blocks, context) {
-    scoreParagraph.textContent = "Score: " + score;
+    
     blocks.forEach(function (block) {
         let x = block.col * blockSize;
         let y = block.row * blockSize;
@@ -274,7 +276,9 @@ function changeColor() {
     requestAnimationFrame(changeColor);
 }
 function update() {
-
+    scoreParagraph.textContent = "Score: " + score;
+    timeParagraph.textContent = "Time: " + parseInt(timeSpent/60) + "." + parseInt(timeSpent%60/60*100)+"";
+    timeSpent++;
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 

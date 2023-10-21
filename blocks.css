@@ -1,14 +1,5 @@
 body {
-  .score{
 
-    top: 350px;
-    left: 530px;
-  }
-  .fps{
-
-    top: 450px;
-    left: 530px;
-  }
   .rectangle1 {
     width: 40px; /* Adjust the width as needed */
     height: 40px; /* Adjust the height as needed */
@@ -96,6 +87,7 @@ body {
     font-size: small;
     font-style:italic;
     font-weight: bold;
+    color: #FFF;
     background-color: #111;
   }
   #board {
