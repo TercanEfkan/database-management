@@ -269,15 +269,15 @@ function displaySkillsOnScreen(skillsOnBoard) {
     });
 }
 function updateSkills() {
-    if(skillsOnBoard.length != 0){
+    if (skillsOnBoard.length != 0) {
         var collidedSkillIndex = -1
         for (let i = 0; i < skillsOnBoard.length; i++) {
-            
+
             let skill = skillsOnBoard[i];
-    
+
             if (
-                skill.col *blockSize > tableX &&
-                skill.col *blockSize < tableX + tableSize.x &&
+                skill.col * blockSize > tableX &&
+                skill.col * blockSize < tableX + tableSize.x &&
                 skill.row * blockSize > tableY - tableSize.y
             ) {
                 // Collision detected
@@ -307,10 +307,10 @@ function updateSkills() {
             }
             rectangleElement.style.backgroundColor = "#50FF50";
         }
-    
+
         drawSkills(skillsOnBoard, context);
     }
-    
+
 }
 function changeColor() {
     credits.style.color = colors[currentIndex];
@@ -319,7 +319,7 @@ function changeColor() {
 }
 function update() {
     scoreParagraph.textContent = "Score: " + score;
-    timeParagraph.textContent = "Time: " + parseInt(timeSpent / 60) + ":" + parseInt(timeSpent % 60 / 60 * 100) + "";
+    timeParagraph.textContent = "Time: " + parseInt(timeSpent / 3600) + ":" + parseInt(timeSpent % 3600 / 60) + "." + parseInt(timeSpent % 60 / 60 * 100) + "";
     timeSpent++;
 
     context.fillStyle = "black";

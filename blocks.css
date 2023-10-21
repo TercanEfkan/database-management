@@ -1,121 +1,165 @@
 body {
 
   .rectangle1 {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
     top: 200px;
     left: 530px;
   }
+
   .rectangle2 {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
     top: 250px;
     left: 530px;
   }
+
   .rectangle3 {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
     top: 300px;
     left: 530px;
   }
+
   .rectangle4 {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
     top: 350px;
     left: 530px;
   }
+
   .rectangle5 {
-    width: 40px; /* Adjust the width as needed */
-    height: 40px; /* Adjust the height as needed */
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
     top: 400px;
     left: 530px;
   }
+
   .rectangle11 {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 30px;
+    /* Adjust the height as needed */
     background-color: #AC00AC;
     position: absolute;
     top: 205px;
     left: 535px;
   }
+
   .rectangle21 {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 30px;
+    /* Adjust the height as needed */
     background-color: green;
     position: absolute;
     top: 255px;
     left: 535px;
   }
+
   .rectangle31 {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 30px;
+    /* Adjust the height as needed */
     background-color: yellow;
     position: absolute;
     top: 305px;
     left: 535px;
   }
+
   .rectangle41 {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 30px;
+    /* Adjust the height as needed */
     background-color: orange;
     position: absolute;
     top: 355px;
     left: 535px;
   }
+
   .rectangle51 {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px;
+    /* Adjust the width as needed */
+    height: 30px;
+    /* Adjust the height as needed */
     background-color: red;
     position: absolute;
     top: 405px;
     left: 535px;
   }
-  
-  
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    font-size: small;
-    font-style:italic;
-    font-weight: bold;
-    color: #FFF;
-    background-color: #111;
-  }
-  #board {
-    border: 5px solid #222;
-  }
-  .container {
-    margin-bottom: 20px;
-    
+
+
+  font-family: 'Courier New',
+  Courier,
+  monospace;
+  text-align: center;
+  font-size: small;
+  font-style:italic;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #111;
 }
+
+#board {
+  border: 5px solid #222;
+}
+
+.container {
+  margin-bottom: 20px;
+
+}
+
 .credits {
-  font-size: 24px; /* Adjust the font size as needed */
+  font-size: 24px;
+  /* Adjust the font size as needed */
   animation: changeColor 1s infinite;
 }
 
 @keyframes changeColor {
   0% {
-    color: red; /* Initial color */
+    color: red;
+    /* Initial color */
   }
+
   25% {
-    color: blue; /* Color after 25% of the animation duration */
+    color: blue;
+    /* Color after 25% of the animation duration */
   }
+
   50% {
-    color: green; /* Color after 50% of the animation duration */
+    color: green;
+    /* Color after 50% of the animation duration */
   }
+
   75% {
-    color: orange; /* Color after 75% of the animation duration */
+    color: orange;
+    /* Color after 75% of the animation duration */
   }
+
   100% {
-    color: red; /* Back to the initial color at the end of the animation */
+    color: red;
+    /* Back to the initial color at the end of the animation */
   }
 }
