@@ -100,7 +100,6 @@ function drawSkills(skillsOnBoard, context) {
 
 function drawBlocks(blocks, context) {
     scoreParagraph.textContent = "Score: " + score;
-    score += 1;
     blocks.forEach(function (block) {
         let x = block.col * blockSize;
         let y = block.row * blockSize;
@@ -226,11 +225,12 @@ class Ball {
                 if (block.toughness <= 0) {
                     let rng = Math.floor(Math.random() * 10);
                     let blk = blocks.splice(collidedBlockIndex, 1);
+                    score+=blk[0].type*100;
                     if (rng > 4) {
                         /*collided block index ile skill spawn edilecek*/
                         let skill = new Skill(blk[0].type, blk[0].row, blk[0].col); // Note the index [0] to access the first element in the blk array
                         skillsOnBoard.push(skill);
-
+                        
                     }
 
                 }
