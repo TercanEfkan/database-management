@@ -18,10 +18,10 @@ let currentIndex = 0;
 
 class Block {
     constructor(toughness, row, col, type) {
-        this.row = row +1;
+        this.row = row + 1;
         this.col = col;
         this.toughness = toughness;
-        this. type = type;
+        this.type = type;
     }
 }
 class Skill {
@@ -102,7 +102,7 @@ function drawSkills(skillsOnBoard, context) {
 }
 
 function drawBlocks(blocks, context) {
-    
+
     blocks.forEach(function (block) {
         let x = block.col * blockSize;
         let y = block.row * blockSize;
@@ -144,17 +144,17 @@ function drawBlocks(blocks, context) {
 }
 
 function go(e) {
-    if (e.code == "ArrowLeft" ||e.key == "a") {
+    if (e.code == "ArrowLeft" || e.key == "a") {
         direction = -1;
-    } else if (e.code == "ArrowRight"||e.key == "d") {
+    } else if (e.code == "ArrowRight" || e.key == "d") {
         direction = 1;
     }
 }
 
 function stop(e) {
-    if ((e.code == "ArrowLeft"||e.key == "a") && direction == -1) {
+    if ((e.code == "ArrowLeft" || e.key == "a") && direction == -1) {
         direction = 0;
-    } else if ((e.code == "ArrowRight"||e.key == "d") && direction == 1) {
+    } else if ((e.code == "ArrowRight" || e.key == "d") && direction == 1) {
         direction = 0;
     }
 }
@@ -228,12 +228,10 @@ class Ball {
                 if (block.toughness <= 0) {
                     let rng = Math.floor(Math.random() * 10);
                     let blk = blocks.splice(collidedBlockIndex, 1);
-                    score+=blk[0].type*100;
+                    score += blk[0].type * 100;
                     if (rng > 4) {
-                        /*collided block index ile skill spawn edilecek*/
-                        let skill = new Skill(blk[0].type, blk[0].row, blk[0].col); // Note the index [0] to access the first element in the blk array
+                        let skill = new Skill(blk[0].type, blk[0].row, blk[0].col);
                         skillsOnBoard.push(skill);
-                        
                     }
 
                 }
@@ -270,7 +268,48 @@ function displaySkillsOnScreen(skillsOnBoard) {
         skillsDisplay.appendChild(skillInfo);
     });
 }
-
+function updateSkills() {
+    if(skillsOnBoard.length != 0){
+        for (let i = 0; i < skillsOnBoard.length; i++) {
+            var collidedSkillIndex = -1
+            let skill = skillsOnBoard[i];
+    
+            if (
+                skill.col *blockSize > tableX &&
+                skill.col *blockSize < tableX + tableSize.x &&
+                skill.row * blockSize > tableY - tableSize.y
+            ) {
+                // Collision detected
+                collidedSkillIndex = i;
+                break;
+            }
+        }
+        if (collidedSkillIndex != -1) {
+            var skl = skillsOnBoard.splice(collidedSkillIndex, 1);
+            switch (skl.type) {
+                case 1:
+                    var rectangleElement = document.querySelector(".rectangle1");
+                    break;
+                case 2:
+                    var rectangleElement = document.querySelector(".rectangle2");
+                    break;
+                case 3:
+                    var rectangleElement = document.querySelector(".rectangle3");
+                    break;
+                case 4:
+                    var rectangleElement = document.querySelector(".rectangle4");
+                    break;
+                case 5:
+                    var rectangleElement = document.querySelector(".rectangle5");
+                    break;
+            }
+            rectangleElement.color = "green";
+        }
+    
+        drawSkills(skillsOnBoard, context);
+    }
+    
+}
 function changeColor() {
     credits.style.color = colors[currentIndex];
     currentIndex = (currentIndex + 1) % colors.length;
@@ -278,7 +317,7 @@ function changeColor() {
 }
 function update() {
     scoreParagraph.textContent = "Score: " + score;
-    timeParagraph.textContent = "Time: " + parseInt(timeSpent/60) + ":" + parseInt(timeSpent%60/60*100)+"";
+    timeParagraph.textContent = "Time: " + parseInt(timeSpent / 60) + ":" + parseInt(timeSpent % 60 / 60 * 100) + "";
     timeSpent++;
 
     context.fillStyle = "black";
@@ -290,7 +329,8 @@ function update() {
 
 
     drawBlocks(blocks, context);
-    drawSkills(skillsOnBoard, context);
+    updateSkills();
+
     tableX += direction * 5; // move the table based on the direction of movement
     if (tableX < 0) {
         tableX = 0; // prevent the table from moving beyond the left border
