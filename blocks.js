@@ -4,6 +4,7 @@ var cols = 30;
 var board;
 var context;
 var skillsOnBoard = [];
+var skillsAvailable = [];
 var tableVelocity = 0;
 var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
@@ -17,7 +18,7 @@ let currentIndex = 0;
 
 class Block {
     constructor(toughness, row, col, type) {
-        this.row = row;
+        this.row = row +1;
         this.col = col;
         this.toughness = toughness;
         this. type = type;
@@ -143,17 +144,17 @@ function drawBlocks(blocks, context) {
 }
 
 function go(e) {
-    if (e.code == "ArrowLeft") {
+    if (e.code == "ArrowLeft" ||e.key == "a") {
         direction = -1;
-    } else if (e.code == "ArrowRight") {
+    } else if (e.code == "ArrowRight"||e.key == "d") {
         direction = 1;
     }
 }
 
 function stop(e) {
-    if (e.code == "ArrowLeft" && direction == -1) {
+    if ((e.code == "ArrowLeft"||e.key == "a") && direction == -1) {
         direction = 0;
-    } else if (e.code == "ArrowRight" && direction == 1) {
+    } else if ((e.code == "ArrowRight"||e.key == "d") && direction == 1) {
         direction = 0;
     }
 }
@@ -277,13 +278,15 @@ function changeColor() {
 }
 function update() {
     scoreParagraph.textContent = "Score: " + score;
-    timeParagraph.textContent = "Time: " + parseInt(timeSpent/60) + "." + parseInt(timeSpent%60/60*100)+"";
+    timeParagraph.textContent = "Time: " + parseInt(timeSpent/60) + ":" + parseInt(timeSpent%60/60*100)+"";
     timeSpent++;
+
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 
     context.fillStyle = "blue";
     context.fillRect(tableX, tableY, tableSize.x, tableSize.y);
+
 
 
     drawBlocks(blocks, context);
