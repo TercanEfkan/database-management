@@ -8,6 +8,9 @@ var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
 var scoreParagraph = document.getElementById("score");
 var score = 1000;
+const colors = ['red', 'blue', 'green', 'orange'];
+const credits = document.getElementById('credits');
+let currentIndex = 0;
 
 class Block {
     constructor(toughness, row, col) {
@@ -41,6 +44,7 @@ window.onload = function () {
 
 
 function update() {
+    changeColor();
     context.fillStyle = 'black';
     context.fillRect(0, 0, board.width, board.height);
 
@@ -144,8 +148,8 @@ class Ball {
         score -= 1000;
         this.x = tableX + tableSize.x / 2;
         this.y = tableY - this.radius;
-        this.dx = 5;
-        this.dy = -5;
+        this.dx = 3;
+        this.dy = 4;
     }
 
     draw(context) {
@@ -226,6 +230,12 @@ class Ball {
 
 var ball = new Ball(tableX + tableSize.x / 2, tableY - blockSize, 5, 5);
 
+
+function changeColor() {
+  credits.style.color = colors[currentIndex];
+  currentIndex = (currentIndex + 1) % colors.length;
+  requestAnimationFrame(changeColor);
+}
 function update() {
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
