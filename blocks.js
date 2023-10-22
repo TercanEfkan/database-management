@@ -177,10 +177,7 @@ class Ball {
         this.dx = 3;
         this.dy = 4;
         this.radius = 10;
-        this.color = '#99F';
-        if (this.type === 0) {
-            this.color = '#FFF';
-        }
+        this.color = '#FFF';
     }
 
     reset() {
@@ -211,13 +208,17 @@ class Ball {
         context.closePath();
         context.fillStyle = this.color;
         context.fill();
-        if (this.type === 0) {
+        
             context.beginPath();
             context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
             context.closePath();
-            context.fillStyle = 'red';
+            
+            context.fillStyle = '#44C';
+            if (this.type === 0) {
+                context.fillStyle = 'red';
+            }
             context.fill();
-        }
+        
     }
 
     move() {
@@ -288,7 +289,9 @@ class Ball {
             this.dx = collisionPoint * 5;
             this.dy = -Math.sqrt(25 - this.dx ** 2);
 
-            collisionSound.play();
+            if(this.type ===0){
+                collisionSound.play();
+            }
         }
 
     }
