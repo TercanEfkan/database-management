@@ -157,8 +157,8 @@ function go(e) {
     } else if (e.code == "ArrowRight" || e.key == "d") {
         direction = 1;
     }
-    else if(e.key =="1"){
-        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
+    else if (e.key == "1") {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 1));
     }
 }
 
@@ -170,31 +170,54 @@ function stop(e) {
     }
 }
 class Ball {
-    constructor(x, y, radius) {
+    constructor(x, y, type) {
+        this.type = type;
         this.x = x;
         this.y = y;
         this.dx = 3;
         this.dy = 4;
         this.radius = 10;
         this.color = '#99F';
+        if (this.type === 0) {
+            this.color = '#FFF';
+        }
     }
 
     reset() {
+        if (this.type === 0) {
+            score -= 1000;
+            this.x = tableX + tableSize.x / 2;
+            this.y = tableY - this.radius;
+            this.dx = 3;
+            this.dy = 4;
+            miss.play();
+        }
+        else {
+            // Find the index of this ball in the ballsOnBoard array
+            const index = ballsOnBoard.indexOf(this);
 
-        this.x = tableX + tableSize.x / 2;
-        this.y = tableY - this.radius;
-        this.dx = 3;
-        this.dy = 4;
-        miss.play();
+            if (index !== -1) {
+                // If the ball is in the array, remove it
+                ballsOnBoard.splice(index, 1);
+            }
+        }
+
 
     }
 
     draw(context) {
         context.beginPath();
-        context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, true);
         context.closePath();
         context.fillStyle = this.color;
         context.fill();
+        if (this.type === 0) {
+            context.beginPath();
+            context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
+            context.closePath();
+            context.fillStyle = 'red';
+            context.fill();
+        }
     }
 
     move() {
@@ -259,7 +282,6 @@ class Ball {
             this.dy = -this.dy;
         } else if (this.y > board.height) {
             this.reset();
-            score -= 1000;
         } else if (this.y + this.radius > tableY && this.y - this.radius < tableY + tableSize.y && this.x > tableX && this.x < tableX + tableSize.x) {
             // i want to run a sound here
             let collisionPoint = (this.x - (tableX + tableSize.x / 2)) / (tableSize.x / 2);
@@ -324,7 +346,6 @@ function updateSkills() {
                     break;
             }
             rectangleElement.style.backgroundColor = "#50FF50";
-            ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
         }
 
         drawSkills(skillsOnBoard, context);
@@ -336,7 +357,7 @@ function changeColor() {
     currentIndex = (currentIndex + 1) % colors.length;
     requestAnimationFrame(changeColor);
 }
-ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
+ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 0));
 function update() {
 
     start.play();
