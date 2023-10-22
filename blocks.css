@@ -40,8 +40,8 @@ body {
     /* Adjust the height as needed */
     background-color: darkred;
     position: absolute;
-    top: 350px;
-    left: 530px;
+    top: 500px;
+    left: -20;
   }
 
   .rectangle5 {

@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="blocks.css">
 </head>
 
-<body>
-    <div class="rectangle1"></div>
+<div class="rectangle1"></div>
     <div class="rectangle2"></div>
     <div class="rectangle3"></div>
     <div class="rectangle4"></div>
@@ -19,7 +18,14 @@
     <div class="rectangle31"></div>
     <div class="rectangle41"></div>
     <div class="rectangle51"></div>
+<body>
+    <audio id="startSound" src="sfx/start.mp3" preload="auto"></audio>
+    <audio id="collisionSound" src="sfx/collision.mp3" preload="auto"></audio>
+    <audio id="missSound" src="sfx/miss.mp3" preload="auto"></audio>
+    
+    
     <div class="container">
+        
         <p class="credits">Database Management</p1>
         <p id="score">Score: <span>0</span></p>
         <p id="time">Time: <span>0</span></p>

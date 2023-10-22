@@ -15,6 +15,9 @@ var timeSpent = 0;
 const colors = ['red', 'blue', 'green', 'orange'];
 const credits = document.getElementById('credits');
 let currentIndex = 0;
+const start = document.getElementById("startSound");
+const collisionSound = document.getElementById("collisionSound");
+const miss = document.getElementById("missSound");
 
 class Block {
     constructor(toughness, row, col, type) {
@@ -38,6 +41,7 @@ var tableY = 450;
 
 
 window.onload = function () {
+    
     board = document.getElementById("board");
     board.height = rows * blockSize;
     board.width = cols * blockSize;
@@ -47,12 +51,12 @@ window.onload = function () {
     document.addEventListener("keydown", go);
     document.addEventListener("keyup", stop);
     // update();
-
+    
     setInterval(update, 1000 / 60); //100 milliseconds
 }
 
 function fillBlocks() {
-
+    
     for (let i = 0; i < 5; i++) {
         let blockCount = this.cols / 2;
         let offset = (i % 2 === 0) ? 0 : 1;
@@ -67,6 +71,7 @@ function fillBlocks() {
             this.blocks.push(bl2);
         }
     }
+    
 }
 function drawSkills(skillsOnBoard, context) {
     for (let i = skillsOnBoard.length - 1; i >= 0; i--) {
@@ -171,6 +176,7 @@ class Ball {
         this.y = tableY - this.radius;
         this.dx = 3;
         this.dy = 4;
+        miss.play();
     }
 
     draw(context) {
@@ -244,10 +250,12 @@ class Ball {
         } else if (this.y + this.radius > board.height) {
             this.reset();
         } else if (this.y + this.radius > tableY && this.y - this.radius < tableY + tableSize.y && this.x > tableX && this.x < tableX + tableSize.x) {
-            // adjust the direction based on the collision point
+            // i want to run a sound here
             let collisionPoint = (this.x - (tableX + tableSize.x / 2)) / (tableSize.x / 2);
             this.dx = collisionPoint * 5;
             this.dy = -Math.sqrt(25 - this.dx ** 2);
+            
+            collisionSound.play();
         }
 
     }
@@ -318,6 +326,7 @@ function changeColor() {
     requestAnimationFrame(changeColor);
 }
 function update() {
+    start.play();
     scoreParagraph.textContent = "Score: " + score;
     timeParagraph.textContent = "Time: " + parseInt(timeSpent / 3600) + ":" + parseInt(timeSpent % 3600 / 60) + "." + parseInt(timeSpent % 60 / 60 * 100) + "";
     timeSpent++;
