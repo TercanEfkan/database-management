@@ -5,12 +5,13 @@ var board;
 var context;
 var skillsOnBoard = [];
 var skillsAvailable = [];
+var ballsOnBoard = [];
 var tableVelocity = 0;
 var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
 var scoreParagraph = document.getElementById("score");
 var timeParagraph = document.getElementById("time");
-var score = 1000;
+var score = 0;
 var timeSpent = 0;
 const colors = ['red', 'blue', 'green', 'orange'];
 const credits = document.getElementById('credits');
@@ -43,7 +44,7 @@ var tableY = 450;
 
 
 window.onload = function () {
-    
+
     board = document.getElementById("board");
     board.height = rows * blockSize;
     board.width = cols * blockSize;
@@ -53,12 +54,12 @@ window.onload = function () {
     document.addEventListener("keydown", go);
     document.addEventListener("keyup", stop);
     // update();
-    
+
     setInterval(update, 1000 / 60); //100 milliseconds
 }
 
 function fillBlocks() {
-    
+
     for (let i = 0; i < 5; i++) {
         let blockCount = this.cols / 2;
         let offset = (i % 2 === 0) ? 0 : 1;
@@ -67,13 +68,13 @@ function fillBlocks() {
             let col1 = j * 2 + offset;
             let col2 = cols - 1 - j * 2 - offset;
 
-            let bl1 = new Block(6 - (i + 1), i, col1, 6 - (i + 1));
-            let bl2 = new Block(6 - (i + 1), i, col2, 6 - (i + 1));
+            let bl1 = new Block(6 - (i + 1), i + 1, col1, 6 - (i + 1));
+            let bl2 = new Block(6 - (i + 1), i + 1, col2, 6 - (i + 1));
             this.blocks.push(bl1);
             this.blocks.push(bl2);
         }
     }
-    
+
 }
 function drawSkills(skillsOnBoard, context) {
     for (let i = skillsOnBoard.length - 1; i >= 0; i--) {
@@ -156,6 +157,9 @@ function go(e) {
     } else if (e.code == "ArrowRight" || e.key == "d") {
         direction = 1;
     }
+    else if(e.key =="1"){
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
+    }
 }
 
 function stop(e) {
@@ -166,19 +170,23 @@ function stop(e) {
     }
 }
 class Ball {
-    constructor() {
+    constructor(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.dx = 3;
+        this.dy = 4;
         this.radius = 10;
         this.color = '#99F';
-        this.reset();
     }
 
     reset() {
-        score -= 1000;
+
         this.x = tableX + tableSize.x / 2;
         this.y = tableY - this.radius;
         this.dx = 3;
         this.dy = 4;
         miss.play();
+
     }
 
     draw(context) {
@@ -249,21 +257,21 @@ class Ball {
         if (this.y - this.radius < 0) {
             this.y = this.radius;
             this.dy = -this.dy;
-        } else if (this.y + this.radius > board.height) {
+        } else if (this.y > board.height) {
             this.reset();
+            score -= 1000;
         } else if (this.y + this.radius > tableY && this.y - this.radius < tableY + tableSize.y && this.x > tableX && this.x < tableX + tableSize.x) {
             // i want to run a sound here
             let collisionPoint = (this.x - (tableX + tableSize.x / 2)) / (tableSize.x / 2);
             this.dx = collisionPoint * 5;
             this.dy = -Math.sqrt(25 - this.dx ** 2);
-            
+
             collisionSound.play();
         }
 
     }
 }
 
-var ball = new Ball(tableX + tableSize.x / 2, tableY - blockSize, 5, 5);
 
 function displaySkillsOnScreen(skillsOnBoard) {
     const skillsDisplay = document.getElementById('skillsDisplay');
@@ -316,6 +324,7 @@ function updateSkills() {
                     break;
             }
             rectangleElement.style.backgroundColor = "#50FF50";
+            ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
         }
 
         drawSkills(skillsOnBoard, context);
@@ -327,7 +336,9 @@ function changeColor() {
     currentIndex = (currentIndex + 1) % colors.length;
     requestAnimationFrame(changeColor);
 }
+ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5));
 function update() {
+
     start.play();
     scoreParagraph.textContent = "Score: " + score;
     timeParagraph.textContent = "Time: " + parseInt(timeSpent / 3600) + ":" + parseInt(timeSpent % 3600 / 60) + "." + parseInt(timeSpent % 60 / 60 * 100) + "";
@@ -350,8 +361,9 @@ function update() {
     } else if (tableX + tableSize.x > board.width) {
         tableX = board.width - tableSize.x; // prevent the table from moving beyond the right border
     }
-    ball.draw(context);
-    ball.move();
-    ball.checkCollisions(blocks, table);
+    ballsOnBoard.forEach(function (ball) {
+        ball.draw(context);
+        ball.move();
+    })
 
 }
