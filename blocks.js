@@ -56,7 +56,7 @@ window.onload = function () {
     document.addEventListener("keyup", stop);
     // update();
 
-    setInterval(update, 1000 / 60); //100 milliseconds
+    const gameLoop = setInterval(update, 1000 / 60); //100 milliseconds
 }
 
 function fillBlocks() {
@@ -187,6 +187,9 @@ function go(e) {
         rectangleElement = document.querySelector(".rectangle5");
         rectangleElement.style.backgroundColor = "darkred";
     }
+    else if (e.key == " ") {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
+    }
 }
 
 function stop(e) {
@@ -306,6 +309,10 @@ class Ball {
                         let skill = new Skill(blk[0].type, blk[0].row, blk[0].col);
                         skillsOnBoard.push(skill);
                     }
+                    if(blocks.length === 0){
+                        alert("Game Over! Your Score: " + score);
+                        clearInterval(gameLoop);
+                    }
                 }
             }
         }
@@ -366,7 +373,6 @@ function updateSkills() {
                     if (skillsAvailable % 2 !== 0) {
                         skillsAvailable = skillsAvailable * 2;
                     }
-
                     break;
                 case 2:
                     rectangleElement = document.querySelector(".rectangle2");
