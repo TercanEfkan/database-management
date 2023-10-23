@@ -241,7 +241,7 @@ class Ball {
         context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
         context.closePath();
         switch(this.type){
-            case 0: context.fillStyle = 'red';
+            case 0: context.fillStyle = '#FFF';
             break;
             case 1: context.fillStyle = "#AC00AC";
             break;
@@ -251,7 +251,7 @@ class Ball {
             break;
             case 4: context.fillStyle = 'orange';
             break;
-            case 5: context.fillStyle = '#FAA';
+            case 5: context.fillStyle = '#F00';
             break;
             
         }
