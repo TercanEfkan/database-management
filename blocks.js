@@ -21,7 +21,7 @@ const start = document.getElementById("startSound");
 const collisionSound = document.getElementById("collisionSound");
 const miss = document.getElementById("missSound");
 start.volume = 0.1;
-collisionSound.volume = 0.1;
+collisionSound.volume = 0.04;
 miss.volume = 0.1;
 class Block {
     constructor(toughness, row, col, type) {
