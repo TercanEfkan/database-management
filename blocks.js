@@ -7,6 +7,7 @@ var skillsOnBoard = [];
 var skillsAvailable = [];
 var ballsOnBoard = [];
 var tableVelocity = 0;
+const tableColor = "blue";
 var direction = 0; // 0 for stationary, -1 for left, 1 for right
 var blocks = [];
 var scoreParagraph = document.getElementById("score");
@@ -371,8 +372,14 @@ function update() {
     context.fillStyle = "black";
     context.fillRect(0, 0, board.width, board.height);
 
-    context.fillStyle = "blue";
-    context.fillRect(tableX, tableY, tableSize.x, tableSize.y);
+    context.beginPath();
+        context.arc(tableX+50, tableY+100, tableSize.x, -Math.PI/3 , -Math.PI/3*2, true);
+        context.closePath();
+        context.fillStyle = tableColor;
+        context.fill();
+        context.fillStyle = tableColor;
+    context.fillRect(tableX, tableY+13, tableSize.x, tableSize.y);
+    
 
 
 
