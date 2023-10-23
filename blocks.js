@@ -4,7 +4,7 @@ var cols = 30;
 var board;
 var context;
 var skillsOnBoard = [];
-var skillsAvailable = [];
+var skillsAvailable = 1;
 var ballsOnBoard = [];
 var tableVelocity = 0;
 const tableColor = "blue";
@@ -158,8 +158,35 @@ function go(e) {
     } else if (e.code == "ArrowRight" || e.key == "d") {
         direction = 1;
     }
-    else if (e.key == "1") {
+    else if (e.key == "1" && skillsAvailable % 2 === 0) {
         ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 1));
+        skillsAvailable = skillsAvailable / 2;
+        rectangleElement = document.querySelector(".rectangle1");
+        rectangleElement.style.backgroundColor = "darkred";
+    }
+    else if (e.key == "2" && skillsAvailable % 3 === 0) {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 2));
+        skillsAvailable = skillsAvailable / 3;
+        rectangleElement = document.querySelector(".rectangle2");
+        rectangleElement.style.backgroundColor = "darkred";
+    }
+    else if (e.key == "3" && skillsAvailable % 5 === 0) {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 3));
+        skillsAvailable = skillsAvailable / 5;
+        rectangleElement = document.querySelector(".rectangle3");
+        rectangleElement.style.backgroundColor = "darkred";
+    }
+    else if (e.key == "4" && skillsAvailable % 7 === 0) {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 4));
+        skillsAvailable = skillsAvailable / 7;
+        rectangleElement = document.querySelector(".rectangle4");
+        rectangleElement.style.backgroundColor = "darkred";
+    }
+    else if (e.key == "5" && skillsAvailable % 11 === 0) {
+        ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
+        skillsAvailable = skillsAvailable / 11;
+        rectangleElement = document.querySelector(".rectangle5");
+        rectangleElement.style.backgroundColor = "darkred";
     }
 }
 
@@ -209,17 +236,27 @@ class Ball {
         context.closePath();
         context.fillStyle = this.color;
         context.fill();
-        
-            context.beginPath();
-            context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
-            context.closePath();
+
+        context.beginPath();
+        context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
+        context.closePath();
+        switch(this.type){
+            case 0: context.fillStyle = 'red';
+            break;
+            case 1: context.fillStyle = "#AC00AC";
+            break;
+            case 2: context.fillStyle = 'green';
+            break;
+            case 3: context.fillStyle = 'yellow';
+            break;
+            case 4: context.fillStyle = 'orange';
+            break;
+            case 5: context.fillStyle = '#FAA';
+            break;
             
-            context.fillStyle = '#44C';
-            if (this.type === 0) {
-                context.fillStyle = 'red';
-            }
-            context.fill();
-        
+        }
+        context.fill();
+
     }
 
     move() {
@@ -290,7 +327,7 @@ class Ball {
             this.dx = collisionPoint * 5;
             this.dy = -Math.sqrt(25 - this.dx ** 2);
 
-            if(this.type ===0){
+            if (this.type === 0) {
                 collisionSound.play();
             }
         }
@@ -335,18 +372,34 @@ function updateSkills() {
             switch (skl[0].type) {
                 case 1:
                     rectangleElement = document.querySelector(".rectangle1");
+                    if (skillsAvailable % 2 !== 0) {
+                        skillsAvailable = skillsAvailable* 2;
+                    }
+
                     break;
                 case 2:
                     rectangleElement = document.querySelector(".rectangle2");
+                    if (skillsAvailable % 3 !== 0) {
+                        skillsAvailable  = skillsAvailable*3;
+                    }
                     break;
                 case 3:
                     rectangleElement = document.querySelector(".rectangle3");
+                    if (skillsAvailable % 5 !== 0) {
+                        skillsAvailable  = skillsAvailable* 5;
+                    }
                     break;
                 case 4:
                     rectangleElement = document.querySelector(".rectangle4");
+                    if (skillsAvailable % 7 !== 0) {
+                        skillsAvailable  = skillsAvailable* 7;
+                    }
                     break;
                 case 5:
                     rectangleElement = document.querySelector(".rectangle5");
+                    if (skillsAvailable % 11 !== 0) {
+                        skillsAvailable  = skillsAvailable*11;
+                    }
                     break;
             }
             rectangleElement.style.backgroundColor = "#50FF50";
@@ -373,13 +426,13 @@ function update() {
     context.fillRect(0, 0, board.width, board.height);
 
     context.beginPath();
-        context.arc(tableX+50, tableY+100, tableSize.x, -Math.PI/3 , -Math.PI/3*2, true);
-        context.closePath();
-        context.fillStyle = tableColor;
-        context.fill();
-        context.fillStyle = tableColor;
-    context.fillRect(tableX, tableY+13, tableSize.x, tableSize.y);
-    
+    context.arc(tableX + 50, tableY + 100, tableSize.x, -Math.PI / 3, -Math.PI / 3 * 2, true);
+    context.closePath();
+    context.fillStyle = tableColor;
+    context.fill();
+    context.fillStyle = tableColor;
+    context.fillRect(tableX, tableY + 13, tableSize.x, tableSize.y);
+
 
 
 
