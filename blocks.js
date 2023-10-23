@@ -75,7 +75,6 @@ function fillBlocks() {
             this.blocks.push(bl2);
         }
     }
-
 }
 function drawSkills(skillsOnBoard, context) {
     for (let i = skillsOnBoard.length - 1; i >= 0; i--) {
@@ -226,8 +225,6 @@ class Ball {
                 ballsOnBoard.splice(index, 1);
             }
         }
-
-
     }
 
     draw(context) {
@@ -240,23 +237,21 @@ class Ball {
         context.beginPath();
         context.arc(this.x, this.y, this.radius - 3, 0, 2 * Math.PI, true);
         context.closePath();
-        switch(this.type){
+        switch (this.type) {
             case 0: context.fillStyle = '#FFF';
-            break;
+                break;
             case 1: context.fillStyle = "#AC00AC";
-            break;
+                break;
             case 2: context.fillStyle = 'green';
-            break;
+                break;
             case 3: context.fillStyle = 'yellow';
-            break;
+                break;
             case 4: context.fillStyle = 'orange';
-            break;
+                break;
             case 5: context.fillStyle = '#F00';
-            break;
-            
+                break;
         }
         context.fill();
-
     }
 
     move() {
@@ -311,9 +306,7 @@ class Ball {
                         let skill = new Skill(blk[0].type, blk[0].row, blk[0].col);
                         skillsOnBoard.push(skill);
                     }
-
                 }
-
             }
         }
         if (this.y - this.radius < 0) {
@@ -331,10 +324,8 @@ class Ball {
                 collisionSound.play();
             }
         }
-
     }
 }
-
 
 function displaySkillsOnScreen(skillsOnBoard) {
     const skillsDisplay = document.getElementById('skillsDisplay');
@@ -373,41 +364,39 @@ function updateSkills() {
                 case 1:
                     rectangleElement = document.querySelector(".rectangle1");
                     if (skillsAvailable % 2 !== 0) {
-                        skillsAvailable = skillsAvailable* 2;
+                        skillsAvailable = skillsAvailable * 2;
                     }
 
                     break;
                 case 2:
                     rectangleElement = document.querySelector(".rectangle2");
                     if (skillsAvailable % 3 !== 0) {
-                        skillsAvailable  = skillsAvailable*3;
+                        skillsAvailable = skillsAvailable * 3;
                     }
                     break;
                 case 3:
                     rectangleElement = document.querySelector(".rectangle3");
                     if (skillsAvailable % 5 !== 0) {
-                        skillsAvailable  = skillsAvailable* 5;
+                        skillsAvailable = skillsAvailable * 5;
                     }
                     break;
                 case 4:
                     rectangleElement = document.querySelector(".rectangle4");
                     if (skillsAvailable % 7 !== 0) {
-                        skillsAvailable  = skillsAvailable* 7;
+                        skillsAvailable = skillsAvailable * 7;
                     }
                     break;
                 case 5:
                     rectangleElement = document.querySelector(".rectangle5");
                     if (skillsAvailable % 11 !== 0) {
-                        skillsAvailable  = skillsAvailable*11;
+                        skillsAvailable = skillsAvailable * 11;
                     }
                     break;
             }
             rectangleElement.style.backgroundColor = "#50FF50";
         }
-
         drawSkills(skillsOnBoard, context);
     }
-
 }
 function changeColor() {
     credits.style.color = colors[currentIndex];
@@ -434,8 +423,6 @@ function update() {
     context.fillRect(tableX, tableY + 13, tableSize.x, tableSize.y);
 
 
-
-
     drawBlocks(blocks, context);
     updateSkills();
 
@@ -449,5 +436,4 @@ function update() {
         ball.draw(context);
         ball.move();
     })
-
 }
