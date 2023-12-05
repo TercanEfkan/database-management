@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <h1>BLOCKS GAME </h1>
-      <Game style={{ border: "222px solid #FFF" }}> </Game>
+      <Game > </Game>
       {/* Other UI elements */}
     </div>
   );

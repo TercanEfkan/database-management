@@ -1,42 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, /*useState*/ } from 'react';
 
 const Game = () => {
     const blockSize = 25;
     const rows = 20;
     const cols = 30;
-    var board;
-    var context;
-    var skillsOnBoard = [];
-    var skillsAvailable = 1;
-    var ballsOnBoard = [];
-    var tableVelocity = 0;
+
+    const skillsOnBoard = [];
+    let skillsAvailable = 1;
+    let ballsOnBoard = [];
+    //let tableVelocity = 0;
     const tableColor = "blue";
-    var direction = 0; // 0 for stationary, -1 for left, 1 for right
-    var blocks = [];
-    var scoreParagraph = document.getElementById("score");
-    var timeParagraph = document.getElementById("time");
-    var score = 0;
-    var timeSpent = 0;
+    let direction = 0; // 0 for stationary, -1 for left, 1 for right
+    const blocks = [];
+    /*var scoreParagraph = document.getElementById("score");
+    var timeParagraph = document.getElementById("time");*/
+    let score = 0;
+    let timeSpent = 0;
     const colors = ['red', 'blue', 'green', 'orange'];
     let currentIndex = 0;
-    var tableSize = { x: 100, y: 10 };
-    var tableX = blockSize * cols / 2 - tableSize.x / 2;
-    var tableY = 450;
+    const tableSize = { x: 100, y: 10 };
+    let tableX = blockSize * cols / 2 - tableSize.x / 2;
+    let tableY = 450;
+    let board;
+    let context;
     // ... (rest of the variables)
 
     useEffect(() => {
         const initializeGame = () => {
             board = document.getElementById("board");
-            board.height = rows * blockSize;
-            board.width = cols * blockSize;
             context = board.getContext("2d"); //used for drawing on the board
             fillBlocks();
 
             document.addEventListener("keydown", go);
             document.addEventListener("keyup", stop);
-            // update();
             ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 0));
-            const gameLoop = setInterval(update, 1000 / 60); //100 milliseconds
+            let gameLoop = setInterval(update, 1000 / 60); //100 milliseconds
         };
 
         const fillBlocks = () => {
@@ -130,49 +128,49 @@ const Game = () => {
             });
         }
         const go = (e) =>{
-            if (e.code == "ArrowLeft" || e.key == "a") {
+            if (e.code === "ArrowLeft" || e.key === "a") {
                 direction = -1;
-            } else if (e.code == "ArrowRight" || e.key == "d") {
+            } else if (e.code === "ArrowRight" || e.key === "d") {
                 direction = 1;
             }
-            else if (e.key == "1" && skillsAvailable % 2 === 0) {
+            else if (e.key === "1" && skillsAvailable % 2 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 1));
                 skillsAvailable = skillsAvailable / 2;
                 //rectangleElement = document.querySelector(".rectangle1");
                 //rectangleElement.style.backgroundColor = "darkred";
             }
-            else if (e.key == "2" && skillsAvailable % 3 === 0) {
+            else if (e.key === "2" && skillsAvailable % 3 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 2));
                 skillsAvailable = skillsAvailable / 3;
                 //rectangleElement = document.querySelector(".rectangle2");
                // rectangleElement.style.backgroundColor = "darkred";
             }
-            else if (e.key == "3" && skillsAvailable % 5 === 0) {
+            else if (e.key === "3" && skillsAvailable % 5 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 3));
                 skillsAvailable = skillsAvailable / 5;
                 //rectangleElement = document.querySelector(".rectangle3");
                 //rectangleElement.style.backgroundColor = "darkred";
             }
-            else if (e.key == "4" && skillsAvailable % 7 === 0) {
+            else if (e.key === "4" && skillsAvailable % 7 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 4));
                 skillsAvailable = skillsAvailable / 7;
                // rectangleElement = document.querySelector(".rectangle4");
                 //rectangleElement.style.backgroundColor = "darkred";
             }
-            else if (e.key == "5" && skillsAvailable % 11 === 0) {
+            else if (e.key === "5" && skillsAvailable % 11 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
                 skillsAvailable = skillsAvailable / 11;
                // rectangleElement = document.querySelector(".rectangle5");
                // rectangleElement.style.backgroundColor = "darkred";
             }
-            else if (e.key == " ") {
+            else if (e.key === " ") {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
             }
         }
         const stop = (e) =>{
-            if ((e.code == "ArrowLeft" || e.key == "a") && direction == -1) {
+            if ((e.code === "ArrowLeft" || e.key === "a") && direction === -1) {
                 direction = 0;
-            } else if ((e.code == "ArrowRight" || e.key == "d") && direction == 1) {
+            } else if ((e.code === "ArrowRight" || e.key === "d") && direction === 1) {
                 direction = 0;
             }
         }
@@ -185,7 +183,11 @@ const Game = () => {
             }
         }
         class Skill {
-
+            constructor(type, row, col) {
+                this.row = row;
+                this.col = col;
+                this.type = type;
+            }
         }
 
         class Ball {
@@ -275,7 +277,7 @@ const Game = () => {
                         }
                     }
 
-                    if (collidedBlockIndex != -1) {
+                    if (collidedBlockIndex !== -1) {
                         let block = blocks[collidedBlockIndex];
                         let x = block.col * blockSize;
                         let y = block.row * blockSize;
@@ -310,7 +312,7 @@ const Game = () => {
                 } else if (this.y > board.height) {
                     this.reset();
                 } else if (this.y + this.radius > tableY && this.y - this.radius < tableY + tableSize.y && this.x > tableX && this.x < tableX + tableSize.x) {
-                    // i want to run a sound here
+                    // I want to run a sound here
                     let collisionPoint = (this.x - (tableX + tableSize.x / 2)) / (tableSize.x / 2);
                     this.dx = collisionPoint * 5;
                     this.dy = -Math.sqrt(25 - this.dx ** 2);
@@ -333,8 +335,8 @@ const Game = () => {
             });}
 
         const updateSkills = () => {
-            if (skillsOnBoard.length != 0) {
-                var collidedSkillIndex = -1
+            if (skillsOnBoard.length !== 0) {
+                let collidedSkillIndex = -1
                 for (let i = 0; i < skillsOnBoard.length; i++) {
 
                     let skill = skillsOnBoard[i];
@@ -349,42 +351,42 @@ const Game = () => {
                         break;
                     }
                 }
-                if (collidedSkillIndex != -1) {
-                    var skl = skillsOnBoard.splice(collidedSkillIndex, 1);
-                    var rectangleElement;
+                if (collidedSkillIndex !== -1) {
+                    const skl = skillsOnBoard.splice(collidedSkillIndex, 1);
+                   // var rectangleElement;
                     switch (skl[0].type) {
                         case 1:
-                            rectangleElement = document.querySelector(".rectangle1");
+                           // rectangleElement = document.querySelector(".rectangle1");
                             if (skillsAvailable % 2 !== 0) {
                                 skillsAvailable = skillsAvailable * 2;
                             }
                             break;
                         case 2:
-                            rectangleElement = document.querySelector(".rectangle2");
+                            //rectangleElement = document.querySelector(".rectangle2");
                             if (skillsAvailable % 3 !== 0) {
                                 skillsAvailable = skillsAvailable * 3;
                             }
                             break;
                         case 3:
-                            rectangleElement = document.querySelector(".rectangle3");
+                            //rectangleElement = document.querySelector(".rectangle3");
                             if (skillsAvailable % 5 !== 0) {
                                 skillsAvailable = skillsAvailable * 5;
                             }
                             break;
                         case 4:
-                            rectangleElement = document.querySelector(".rectangle4");
+                            //rectangleElement = document.querySelector(".rectangle4");
                             if (skillsAvailable % 7 !== 0) {
                                 skillsAvailable = skillsAvailable * 7;
                             }
                             break;
                         case 5:
-                            rectangleElement = document.querySelector(".rectangle5");
+                            //rectangleElement = document.querySelector(".rectangle5");
                             if (skillsAvailable % 11 !== 0) {
                                 skillsAvailable = skillsAvailable * 11;
                             }
                             break;
                     }
-                    rectangleElement.style.backgroundColor = "#50FF50";
+                    //rectangleElement.style.backgroundColor = "#50FF50";
                 }
                 drawSkills(skillsOnBoard, context);
             }
@@ -433,7 +435,7 @@ const Game = () => {
             // Clear any intervals or event listeners
             // ...
         };
-    }, []);
+    });
 
     return (
         <div>
