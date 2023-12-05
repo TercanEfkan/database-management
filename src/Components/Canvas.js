@@ -8,7 +8,7 @@ const CanvasComponent = () => {
         const context = canvas.getContext('2d');
 
         // Your drawing code goes here
-        context.fillStyle = 'green';
+        context.fillStyle = 'blue';
         context.fillRect(10, 10, 100, 100);
 
         // Cleanup (optional)

@@ -1,6 +1,7 @@
 // App.js
 import React, { useState, useEffect } from 'react';
 import Canvas from './Components/Canvas';
+import Game from './Components/Game';
 
 function App() {
   // State variables for score, time, etc.
@@ -12,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <h1>BLOCKS GAME </h1>
-      <Canvas style={{ border: "222px solid #FFF" }}> </Canvas>
+      <Game style={{ border: "222px solid #FFF" }}> </Game>
       {/* Other UI elements */}
     </div>
   );
