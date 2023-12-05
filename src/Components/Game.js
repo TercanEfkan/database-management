@@ -34,7 +34,7 @@ const Game = () => {
             document.addEventListener("keydown", go);
             document.addEventListener("keyup", stop);
             ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 0));
-            let gameLoop = setInterval(update, 1000 / 60); //100 milliseconds
+            setInterval(update, 1000 / 60); //100 milliseconds
         };
 
         const fillBlocks = () => {
@@ -280,7 +280,6 @@ const Game = () => {
                     if (collidedBlockIndex !== -1) {
                         let block = blocks[collidedBlockIndex];
                         let x = block.col * blockSize;
-                        let y = block.row * blockSize;
 
                         if (this.x > x && this.x < x + blockSize) {
                             // ball hit the top or bottom of the block
@@ -326,7 +325,7 @@ const Game = () => {
             const skillsDisplay = document.getElementById('skillsDisplay');
             skillsDisplay.innerHTML = ''; // Clear any previous content
 
-            skillsOnBoard.forEach(function (skill) {
+            skillsOnBoard.forEach(function () {
                 // Create a new paragraph for each skill and display its information
                 const skillInfo = document.createElement('p');
 
@@ -438,13 +437,31 @@ const Game = () => {
     });
 
     return (
+
         <div>
+            <div>
+                <div className="rectangle1" style = {rectStyle}></div>
+            </div>
             {/* HTML/JSX for rendering the game */}
-            <canvas id="board" width={cols * blockSize} height={rows * blockSize}></canvas>
-            {/* Other HTML elements */}
+            <canvas id="board" width={cols * blockSize} height={rows * blockSize} style = {gameStyle}></canvas>
 
         </div>
     );
 };
+const gameStyle = {
+    fontSize: '1%',
+    border: '10% solid red', // Define border width, style, and color
+    outline: 'none',
+    marginLeft: '1%',
+};
+const rectStyle = {
+    backgroundColor: 'blue',
+    padding: '1%',
+    fontSize: '1%',
+    border: '10% solid red', // Define border width, style, and color
+    outline: 'none',
+    marginLeft: '1%',
+};
+
 
 export default Game;
