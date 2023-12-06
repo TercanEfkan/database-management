@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Header = () => {
     return (
         <header style={headerStyle}>
@@ -12,7 +11,7 @@ const Header = () => {
                         </a>
                     </li>
                     <li style={liStyle}>
-                        <a style={linkStyle} href="/Play">
+                        <a style={linkStyle} href="/game">
                             Play
                         </a>
                     </li>
