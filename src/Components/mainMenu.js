@@ -16,7 +16,7 @@ const middleStyle = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 'calc(50vw - 50px)', // Shift 50px to the left
+    marginLeft: '30vw', // Shift 50px to the left
     width: '45vw',
     height: '30vw',
     backgroundColor: '#FFFFFF',

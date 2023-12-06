@@ -1,10 +1,10 @@
-import React, { useEffect, /*useState*/ } from 'react';
+import React, { useEffect } from 'react';
 
 const Game = () => {
+    let rectColor = "white";
     const blockSize = 25;
     const rows = 20;
     const cols = 30;
-
     const skillsOnBoard = [];
     let skillsAvailable = 1;
     let ballsOnBoard = [];
@@ -26,11 +26,12 @@ const Game = () => {
     // ... (rest of the variables)
 
     useEffect(() => {
+        const audio = new Audio('./sfx/start.mp3');
+        audio.play();
         const initializeGame = () => {
             board = document.getElementById("board");
             context = board.getContext("2d"); //used for drawing on the board
             fillBlocks();
-
             document.addEventListener("keydown", go);
             document.addEventListener("keyup", stop);
             ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 0));
@@ -395,7 +396,6 @@ const Game = () => {
             requestAnimationFrame(changeColor);}
         const update = () => {
 
-
             timeSpent++;
 
             context.fillStyle = "black";
@@ -431,20 +431,34 @@ const Game = () => {
 
         // Clean-up logic (similar to componentWillUnmount)
         return () => {
+            audio.pause();
+            audio.src = '';
             // Clear any intervals or event listeners
             // ...
         };
     });
-
+    const rectStyle = {
+        backgroundColor: 'green',
+        width: `${2 * blockSize}px`, // Adjust width as needed
+        height: `${2 * blockSize}px`, // Set the height to match the game board
+        position: 'absolute',
+        left: '20vw',
+        top: '5vw',
+    };
     return (
-
-        <div>
-            <div>
-                <div className="rectangle1" style = {rectStyle}></div>
-            </div>
+        <div style={{ position: 'relative' }}>
+            <div style={{ ...rectStyle, backgroundColor: 'purple', top: '5vw' }}></div>
+            <div style={{ ...rectStyle, backgroundColor: 'green', top: '10vw' }}></div>
+            <div style={{ ...rectStyle, backgroundColor: 'yellow', top: '15vw' }}></div>
+            <div style={{ ...rectStyle, backgroundColor: 'orange', top: '20vw' }}></div>
+            <div style={{ ...rectStyle, backgroundColor: 'red', top: '25vw' }}></div>
             {/* HTML/JSX for rendering the game */}
-            <canvas id="board" width={cols * blockSize} height={rows * blockSize} style = {gameStyle}></canvas>
-
+            <canvas
+                id="board"
+                width={cols * blockSize}
+                height={rows * blockSize}
+                style={gameStyle}
+            ></canvas>
         </div>
     );
 };
@@ -454,14 +468,7 @@ const gameStyle = {
     outline: 'none',
     marginLeft: '1%',
 };
-const rectStyle = {
-    backgroundColor: 'blue',
-    padding: '1%',
-    fontSize: '1%',
-    border: '10% solid red', // Define border width, style, and color
-    outline: 'none',
-    marginLeft: '1%',
-};
+
 
 
 export default Game;
