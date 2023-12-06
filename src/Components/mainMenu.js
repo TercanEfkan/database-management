@@ -4,13 +4,23 @@ import Game from './Game';
 const MainMenu = () => {
     return (
         <div style={middleStyle}>
-            <button>
+            <button style = {buttonStyle} href="/game">Play </button>
+            <button style = {buttonStyle} >LeaderBoard</button>
+            <button style = {buttonStyle} >Profile</button>
+            <button style = {buttonStyle} >SignUp</button>
 
-            </button>
         </div>
     );
 };
+const buttonStyle = {
 
+    width: '30vw',
+    height: '50px',
+    textDecoration: 'none',
+    marginBottom: '5px',
+    color: '#000000',
+    background: 'linear-gradient(to right, #202020, #404040)',
+};
 const middleStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -19,16 +29,11 @@ const middleStyle = {
     marginLeft: '30vw', // Shift 50px to the left
     width: '45vw',
     height: '30vw',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#404040',
     color: '#000000',
     fontSize: '1rem',
-    border: '10px solid red',
+    border: '10px solid #202020',
     boxSizing: 'border-box',
-};
-
-const buttonStyle = {
-    textDecoration: 'none',
-    color: '#000000',
 };
 
 export default MainMenu;

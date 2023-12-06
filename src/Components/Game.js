@@ -27,7 +27,7 @@ const Game = () => {
 
     useEffect(() => {
         const audio = new Audio('./sfx/start.mp3');
-        audio.play();
+        //audio.play();
         const initializeGame = () => {
             board = document.getElementById("board");
             context = board.getContext("2d"); //used for drawing on the board
