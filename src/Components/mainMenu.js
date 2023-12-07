@@ -4,7 +4,7 @@ import Game from './Game';
 const MainMenu = () => {
     return (
         <div style={middleStyle}>
-            <button style = {buttonStyle} href="/game">Play </button>
+            <button style = {buttonStyle} >Play </button>
             <button style = {buttonStyle} >LeaderBoard</button>
             <button style = {buttonStyle} >Profile</button>
             <button style = {buttonStyle} >SignUp</button>

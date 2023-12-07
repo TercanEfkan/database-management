@@ -18,7 +18,7 @@ function App() {
     <div className="App" style = {appStyle}>
 
         <BrowserRouter>
-            <Header></Header>
+            <Header/>
             <Routes>
                 <Route path="/mainmenu" element = {<MainMenu/>}/>
                 <Route path="/game" element={<Game />} />
