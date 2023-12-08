@@ -12,12 +12,16 @@ const MainMenu = () => {
     const signupLink = () => {
         window.location.href = '/signup';
     };
+    const loginLink = () => {
+        window.location.href = '/login';
+    };
     return (
         <div style={middleStyle}>
             <button style = {buttonStyle} onClick={gameLink} >Play</button>
             <button style = {buttonStyle} onClick={leaderboardLink}>LeaderBoard</button>
             <button style = {buttonStyle} onClick={profileLink} >Profile</button>
-            <button style = {buttonStyle} onClick={signupLink} >SignUp</button>
+            <button style = {buttonStyle} onClick={loginLink} >Log In</button>
+            <button style = {buttonStyle} onClick={signupLink} >Sign Up</button>
 
         </div>
     );
@@ -25,7 +29,7 @@ const MainMenu = () => {
 const buttonStyle = {
 
     width: '30vw',
-    height: '50px',
+    height: '3vw',
     textDecoration: 'none',
     marginBottom: '5px',
     color: '#000000',
