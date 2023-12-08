@@ -43,23 +43,23 @@ const Profile = () => {
 };
 
 const articleNumber = 4
-const pStyle={
+const pStyle={ // textler kutunun ortasından yazmaya başlıyordu. soldan başlaması için yapıldı
     float: 'left',
 };
 const titleStyle ={
     backgroundColor: '#383838',
-    width: '33%',
+    width: '33%', // kutunun kapladığı alan paddinge dikkat değişirse buda değişmeli
     height: '90%',
     float: 'left',
-    padding: '3px',
+    padding: '3px', // width i bozuyor değiştirirken dikkat
 };
 
 const informationTextStyle ={
     backgroundColor: '#4F4F4F',
-    width: '63%',
+    width: '64%', // kutunun kapladığı alan paddinge dikkat değişirse buda değişmeli
     height: '90%',
     float: 'left',
-    padding: '3px',
+    padding: '3px', // width i bozuyor değiştirirken dikkat
 };
 
 const container ={ //
@@ -69,7 +69,7 @@ const container ={ //
 const middleStyle = {
 
     padding: '10px',
-    margin: '0 auto',
+    margin: '0 auto', // x eksenine göre ortalar
     width: '45vw',
     height: '30vw',
     backgroundColor: '#232323',
