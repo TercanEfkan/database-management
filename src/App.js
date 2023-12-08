@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AboutUs from "./Components/aboutUs";
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/Login";
+import Profile from "./Components/Profile";
 
 function App() {
 
@@ -17,12 +18,13 @@ function App() {
         <BrowserRouter>
             <Header/>
             <Routes>
-                <Route path="/mainmenu" element = {<MainMenu/>}/>
+                <Route path="/" element = {<MainMenu/>}/>
                 <Route path="/game" element={<Game />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/login" element={<LogIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </BrowserRouter>
       {/* Other UI elements */}

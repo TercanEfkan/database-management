@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutUs = () => {
+const MainMenu = () => {
     const kiracLink = () => {
         window.location.href = 'https://www.linkedin.com/in/efkan-k%C4%B1ra%C3%A7-tercan-22a063224/';
     };
@@ -17,7 +17,7 @@ const AboutUs = () => {
     return (
         <div >
             <div style={containerStyle} onClick={kiracLink}>
-                <p style={textStyle}>Kıraç</p>
+                <p style={textStyle} >Kıraç</p>
                 <img
                     src="https://media.licdn.com/dms/image/D4D03AQGm0eLlN7FY8g/profile-displayphoto-shrink_800_800/0/1679133479321?e=1707350400&v=beta&t=tGs9VPgsqHHkqo6pIK0mWKC_eBCzDXc1YX_PvfIKVaQ"
                     style={imageStyle}
@@ -75,4 +75,4 @@ const imageStyle = {
     borderRadius: '50%',
 };
 
-export default AboutUs;
+export default MainMenu;

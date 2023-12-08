@@ -6,7 +6,7 @@ const Header = () => {
             <nav style={navStyle}>
                 <ul style={ulStyle}>
                     <li style={liStyle}>
-                        <a style={linkStyle} href="/mainmenu">
+                        <a style={linkStyle} href="/">
                             Main Menu
                         </a>
                     </li>
