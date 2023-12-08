@@ -1,13 +1,23 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Game from './Game';
 const MainMenu = () => {
+    const gameLink = () => {
+        window.location.href = '/game';
+    };
+    const leaderboardLink = () => {
+        window.location.href = '/leaderboard';
+    };
+    const profileLink = () => {
+        window.location.href = '/profile';
+    };
+    const signupLink = () => {
+        window.location.href = '/signup';
+    };
     return (
         <div style={middleStyle}>
-            <button style = {buttonStyle} >Play </button>
-            <button style = {buttonStyle} >LeaderBoard</button>
-            <button style = {buttonStyle} >Profile</button>
-            <button style = {buttonStyle} >SignUp</button>
+            <button style = {buttonStyle} onClick={gameLink} >Play</button>
+            <button style = {buttonStyle} onClick={leaderboardLink}>LeaderBoard</button>
+            <button style = {buttonStyle} onClick={profileLink} >Profile</button>
+            <button style = {buttonStyle} onClick={signupLink} >SignUp</button>
 
         </div>
     );
