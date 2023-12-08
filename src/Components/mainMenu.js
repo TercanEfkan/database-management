@@ -29,10 +29,10 @@ const middleStyle = {
     marginLeft: '30vw', // Shift 50px to the left
     width: '45vw',
     height: '30vw',
-    backgroundColor: '#404040',
+    backgroundColor: '#333',
     color: '#000000',
     fontSize: '1rem',
-    border: '10px solid #202020',
+    border: '10px solid grey',
     boxSizing: 'border-box',
 };
 

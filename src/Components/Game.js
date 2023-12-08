@@ -464,7 +464,8 @@ const Game = () => {
 };
 const gameStyle = {
     fontSize: '1%',
-    border: '10% solid red', // Define border width, style, and color
+    border: '10px solid grey',
+    // Define border width, style, and color
     outline: 'none',
     marginLeft: '1%',
 };

@@ -6,6 +6,7 @@ import Game from './Components/Game';
 import MainMenu from "./Components/mainMenu";
 import LeaderBoard from "./Components/leaderBoard";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AboutUs from "./Components/aboutUs";
 
 function App() {
   // State variables for score, time, etc.
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/mainmenu" element = {<MainMenu/>}/>
                 <Route path="/game" element={<Game />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
+                <Route path="/about" element={<AboutUs />} />
             </Routes>
         </BrowserRouter>
       {/* Other UI elements */}
@@ -30,6 +32,6 @@ function App() {
   );
 }
 const appStyle = {
-    background: 'linear-gradient(to right, #dd4d62, #f4dd02)'
+    background: 'linear-gradient(to right, #333, #555)'
 };
 export default App;

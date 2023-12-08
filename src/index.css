@@ -8,7 +8,7 @@ body {
   font-style:italic;
   font-weight: bold;
   color: #FFF;
-  background: linear-gradient(in hsl longer hue, #ff5e62, #ff9966);
+  background: linear-gradient(to right, #333, #555);
 }
 
 #board {

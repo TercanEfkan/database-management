@@ -20,6 +20,11 @@ const Header = () => {
                             Leader Board
                         </a>
                     </li>
+                    <li style={liStyle}>
+                        <a style={linkStyle} href="/about">
+                            About Us
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -28,7 +33,7 @@ const Header = () => {
 
 const headerStyle = {
     marginBottom: '10px',
-    background: 'linear-gradient(to right, #ff5e62, #ff9966)',
+    background: 'linear-gradient(to right, #252525, #555555)',
     color: 'white',
     display: 'flex',
     alignItems: 'center',
