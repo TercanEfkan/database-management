@@ -2,41 +2,80 @@ import React from 'react';
 const Profile = () => {
     return (
         <div style={middleStyle}>
-            <h1>USERID</h1>
-            <div style={divStyle}>
-                <p >User Name:</p>
-            </div>
-            <div style={divStyle}>
-            <p >Date Joined:</p>
-            </div>
-            <div style={{ ...divStyle, borderBottom: '2px solid black'}} >
-                <p >Placement:</p>
+            <h1>Player ID</h1>
+            <div style={container}>
+                <div style={titleStyle}>
+                    <p style={pStyle}>A:</p>
+                </div>
+                <div style={informationTextStyle}>
+                    <p style={pStyle} >AAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAA AAAAAAAAAA</p>
+                </div>
             </div>
 
+            <div style={container}>
+                <div style={titleStyle}>
+                    <p style={pStyle}>B:</p>
+                </div>
+                <div style={informationTextStyle}>
+                    <p style={pStyle} >BBBBBBBBBBBBBB BBBBBBBBBBB BBBBBBBBB</p>
+                </div>
+            </div>
 
+            <div style={container}>
+                <div style={titleStyle}>
+                    <p style={pStyle}>C:</p>
+                </div>
+                <div style={informationTextStyle}>
+                    <p style={pStyle} >CCCCCCCCCCCC CCCCCCCC CCCCCCCCCCCCCCCCCC CCCCCC</p>
+                </div>
+            </div>
+
+            <div style={container}>
+                <div style={titleStyle}>
+                    <p style={pStyle}>D:</p>
+                </div>
+                <div style={informationTextStyle}>
+                    <p style={pStyle} >DDDDDDDDDDDDD DDDDDDDDDDD DDDDDDDDDD DDDDDDDDDDDDDD</p>
+                </div>
+            </div>
         </div>
     );
 };
-const divStyle = {
-    width: '44vw',
-    height: '5vw',
-    backgroundColor: '#433',
-    borderTop: '2px solid black',
-    borderLeft: '2px solid black',
-    borderRight: '2px solid black',
+
+const articleNumber = 4
+const pStyle={
+    float: 'left',
+};
+const titleStyle ={
+    backgroundColor: '#383838',
+    width: '33%',
+    height: '90%',
+    float: 'left',
+    padding: '3px',
+};
+
+const informationTextStyle ={
+    backgroundColor: '#4F4F4F',
+    width: '63%',
+    height: '90%',
+    float: 'left',
+    padding: '3px',
+};
+
+const container ={ //
+    backgroundColor: '#333',
+    height: (300/articleNumber),
 };
 const middleStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginLeft: '30vw', // Shift 50px to the left
+
+    padding: '10px',
+    margin: '0 auto',
     width: '45vw',
     height: '30vw',
-    backgroundColor: '#333',
+    backgroundColor: '#232323',
     color: '#000000',
     fontSize: '1rem',
     border: '10px solid grey',
-    boxSizing: 'border-box',
 };
 
 export default Profile;
