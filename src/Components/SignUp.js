@@ -1,25 +1,53 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import axios
 
 function SignUp() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [playername, setPlayername] = useState('');
     const handleInputChangeUsername = (e) => {
         setUsername(e.target.value);
+    };
+    const handleInputChangeplayername = (e) => {
+        setPlayername(e.target.value);
     };
     const handleInputChangePassword = (e) => {
         setPassword(e.target.value);
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Username:', username);
-        // You can perform further actions like API calls or state updates here
+        try {
+            // Send a POST request to your backend
+            const response = await axios.post('http://localhost:3001/signup', {
+                username,
+                password,
+                playername,
+            });
+
+            console.log('Response:', response.data);
+            // Handle success, update UI or show a success message
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle error, show an error message to the user
+        }
     };
 
     return (
         <div className="signup-container">
             <h2 style={textStyle}>Sign Up</h2>
             <form onSubmit={handleSubmit}>
+                <div>
+                    <label style={textStyle}>
+                        First Name:
+                        <input
+                            type="text"
+                            value={playername}
+                            placeholder="Enter your first name"
+                            style={textBoxStyle}
+                            onChange={handleInputChangeplayername}
+                        />
+                    </label>
+                </div>
                 <div>
                     <label style={textStyle}>
                         Username:
