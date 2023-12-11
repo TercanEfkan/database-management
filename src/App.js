@@ -11,6 +11,7 @@ import LogIn from "./Components/Login";
 import Profile from "./Components/Profile";
 
 function App() {
+    let username;
 
   return (
     <div className="App" style = {appStyle}>

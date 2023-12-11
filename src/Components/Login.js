@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import axios from "axios";
 
-function SignUp() {
+function LogIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const handleInputChangeUsername = (e) => {
@@ -9,11 +10,20 @@ function SignUp() {
     const handleInputChangePassword = (e) => {
         setPassword(e.target.value);
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Username:', username);
-        // You can perform further actions like API calls or state updates here
+        try {
+            // Send a POST request to your backend
+            const response = await axios.post('http://localhost:3001/login', {
+                username,
+                password,
+            });
+            alert(response.data['message']);
+            // Handle success, update UI or show a success message
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle error, show an error message to the user
+        }
     };
 
     return (
@@ -78,4 +88,4 @@ const buttonStyle = {
     background: 'linear-gradient(to right, #202020, #404040)',
 };
 
-export default SignUp;
+export default LogIn;
