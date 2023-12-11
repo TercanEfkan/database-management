@@ -17,14 +17,34 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Send a POST request to your backend
-            const response = await axios.post('http://localhost:3001/signup', {
-                username,
-                password,
-                playername,
-            });
-            alert(response.data['message']);
-            // Handle success, update UI or show a success message
+            const usBool = isAlphanumeric(username);
+            const passBool = isAlphanumericWithSymbols(password);
+            const nameBool = isAlphabetic(playername);
+            if(nameBool && playername.length <= 10){
+                if(usBool && username.length <= 12 && username.length >= 6){
+                    if(passBool && password.length <= 12 && password.length >= 6){
+                        // Send a POST request to your backend
+
+                        const response = await axios.post('http://localhost:3001/signup', {
+                            username,
+                            password,
+                            playername,
+                        });
+                        alert(response.data['message'] + response.data['success']);
+                        if(response.data['success']) window.location.href = '/';
+
+                    }
+                    else{
+                        alert("Password can only contain the characters of a-z, A-Z and 0-9 with the maximum length of 12 and min length of 6");
+                    }
+                }
+                else{
+                    alert("Username can only contain the characters of a-z, A-Z, 0-9, !@#$^&()+=<>.,:;{}| and space with the maximum length of 12 and min length of 6");
+                }
+            }else{
+                alert("Firstname can only contain the characters of a-z and A-Z with the maximum length of 10");
+            }
+
         } catch (error) {
             console.error('Error:', error);
             // Handle error, show an error message to the user
@@ -79,6 +99,18 @@ function SignUp() {
             </form>
         </div>
     );
+}
+function isAlphanumeric(word) {
+    const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+    return alphanumericRegex.test(word);
+}
+function isAlphabetic(word) {
+    const alphanumericRegex = /^[a-zA-Z]+$/;
+    return alphanumericRegex.test(word);
+}
+function isAlphanumericWithSymbols(word) {
+    const alphanumericWithSymbols = /^[a-zA-Z0-9!@#$^&()+=<>.,:;{}|\s]+$/;
+    return alphanumericWithSymbols.test(word);
 }
 
 const textStyle = {

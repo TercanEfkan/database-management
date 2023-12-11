@@ -26,11 +26,11 @@ app.post('/signup', async (req, res) => {
         if (countResult.recordset[0][''] === 0){
             await request.query(`INSERT INTO dbo.Player (UserID, Password, PlayerName) VALUES ('${username}', '${password}', '${playername}')`);
 
-            res.status(201).json({ message: 'Sign-up successful' });
+            res.status(201).json({ message: 'Sign-up successful', success: true });
         }
         else{
             console.error('Error: username unavailable')
-            res.status(201).json({ message: 'Username is unavailable' });
+            res.status(201).json({ message: 'Username is unavailable', success: false });
         }
 
     } catch (error) {
