@@ -23,8 +23,7 @@ function SignUp() {
                 password,
                 playername,
             });
-
-            console.log('Response:', response.data);
+            alert(response.data['message']);
             // Handle success, update UI or show a success message
         } catch (error) {
             console.error('Error:', error);
