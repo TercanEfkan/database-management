@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function LogIn() {
+function LogIn({setUserID}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const handleInputChangeUsername = (e) => {
@@ -18,7 +18,11 @@ function LogIn() {
                 username,
                 password,
             });
-            alert(response.data['message'] +" "+response.data['userid']);
+            alert(response.data['message'] +" "+response.data['userid']+response.data['success']);
+            if (response.data['success']){
+                setUserID(response.data['userid']);
+                window.location.href = '/';
+            }
             // Handle success, update UI or show a success message
         } catch (error) {
             console.error('Error:', error);

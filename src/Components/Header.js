@@ -1,5 +1,5 @@
 import React from 'react';
-const Header = () => {
+const Header = ({userID}) => {
     return (
         <header style={headerStyle}>
             <h1 style={titleStyle}>BLOCKS</h1>
@@ -17,7 +17,7 @@ const Header = () => {
                     </li>
                     <li style={liStyle}>
                         <a style={linkStyle} href="/leaderboard">
-                            Leader Board
+                            Leaderboard
                         </a>
                     </li>
                     <li style={liStyle}>

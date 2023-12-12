@@ -1,5 +1,5 @@
 // App.js
-import React from 'react';
+import React, {useState} from 'react';
 import Header from './Components/Header'
 import Game from './Components/Game';
 import MainMenu from "./Components/mainMenu";
@@ -11,21 +11,24 @@ import LogIn from "./Components/Login";
 import Profile from "./Components/Profile";
 
 function App() {
-    let username;
-
+    const [userID, setUserid]= useState(0);
+    function setUserID(value){
+        setUserid(value);
+        console.log('we did it ' + userID);
+    }
   return (
     <div className="App" style = {appStyle}>
-
+        <p1>{userID}</p1>
         <BrowserRouter>
             <Header/>
             <Routes>
-                <Route path="/" element = {<MainMenu/>}/>
-                <Route path="/game" element={<Game />} />
-                <Route path="/leaderboard" element={<LeaderBoard />} />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="/login" element={<LogIn />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route path="/" element = {<MainMenu userID = {userID}/>}/>
+                <Route path="/game" element={<Game userID = {userID}/>} />
+                <Route path="/leaderboard" element={<LeaderBoard userID = {userID}/>} />
+                <Route path="/about" element={<AboutUs userID = {userID}/>} />
+                <Route path="/login" element={<LogIn setUserID = {setUserID}/>} />
+                <Route path="/signup" element={<SignUp setUserID = {setUserID}/>} />
+                <Route path="/profile" element={<Profile userID = {userID}/>} />
             </Routes>
         </BrowserRouter>
       {/* Other UI elements */}
