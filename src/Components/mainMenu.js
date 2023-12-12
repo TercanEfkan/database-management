@@ -1,5 +1,5 @@
 import React from 'react';
-const MainMenu = () => {
+const MainMenu = ({userID}) => {
     const gameLink = () => {
         window.location.href = '/game';
     };
@@ -15,12 +15,18 @@ const MainMenu = () => {
     const loginLink = () => {
         window.location.href = '/login';
     };
+    let text;
+    if (userID === -1){
+        text = 'Log In';
+    }else{
+        text = 'Log Out';
+    }
     return (
         <div style={middleStyle}>
             <button style = {buttonStyle} onClick={gameLink} >Play</button>
             <button style = {buttonStyle} onClick={leaderboardLink}>LeaderBoard</button>
             <button style = {buttonStyle} onClick={profileLink} >Profile</button>
-            <button style = {buttonStyle} onClick={loginLink} >Log In</button>
+            <button style = {buttonStyle} onClick={loginLink} >{text}</button>
             <button style = {buttonStyle} onClick={signupLink} >Sign Up</button>
 
         </div>

@@ -4,12 +4,8 @@ import axios from "axios";
 function LogIn({setUserID, userID}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const handleInputChangeUsername = (e) => {
-        setUsername(e.target.value);
-    };
-    const handleInputChangePassword = (e) => {
-        setPassword(e.target.value);
-    };
+    const handleInputChangeUsername = (e) => {setUsername(e.target.value);};
+    const handleInputChangePassword = (e) => {setPassword(e.target.value);};
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -18,9 +14,10 @@ function LogIn({setUserID, userID}) {
                 username,
                 password,
             });
-            alert(response.data['message'] +" "+response.data['userid']+response.data['success']);
+            alert(response.data['message']);
             if (response.data['success']){
                 setUserID(response.data['userid']);
+                window.location.href = '/';
             }
             // Handle success, update UI or show a success message
         } catch (error) {
@@ -70,7 +67,7 @@ function LogIn({setUserID, userID}) {
         return (
             <div className="signup-container">
                     <div> {/* Container for stacking elements */}
-                        <button type="submit" style={buttonStyle} onClick={()=> {localStorage.setItem('userID', JSON.stringify(-1));}}>
+                        <button type="submit" style={buttonStyle} onClick={()=> {localStorage.setItem('userID', JSON.stringify(-1)); window.location.href = '/';}}>
                             Log Out
                         </button>
                     </div>

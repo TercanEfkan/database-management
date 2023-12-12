@@ -25,11 +25,11 @@ function App() {
             <BrowserRouter>
                 <Header userID={userID} />
                 <Routes>
-                    <Route path="/" element={<MainMenu userID={userID} />} />
+                    <Route path="/" element={<MainMenu userID={userID}/>} />
                     <Route path="/game" element={<Game userID={userID} />} />
                     <Route path="/leaderboard" element={<LeaderBoard userID={userID} />} />
                     <Route path="/about" element={<AboutUs userID={userID} />} />
-                    <Route path="/login" element={<LogIn setUserID={setUserID} />} />
+                    <Route path="/login" element={<LogIn setUserID={setUserID}  />} />
                     <Route path="/signup" element={<SignUp setUserID={setUserID} />} />
                     <Route path="/profile" element={<Profile userID={userID} />} />
                 </Routes>
