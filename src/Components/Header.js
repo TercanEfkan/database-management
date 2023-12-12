@@ -1,110 +1,52 @@
 import React from 'react';
+import './Header.css';
 const Header = ({userID}) => {
     console.log(userID + " header");
+
+    // Kullanılacak Style lar atandı.
+    const headerStyle = 'headerStyle';
+    const titleStyle = 'titleStyle';
+    const myButton = 'myButton';
+    const headerButtons = 'headerButtons';
+
     return (
 
-        <header style={headerStyle}>
-            <h1 style={titleStyle}>{userID}</h1>
-            <nav style={navStyle}>
-                <ul style={ulStyle}>
-                    <li style={liStyle}>
-                        <a style={linkStyle} href="/">
-                            Main Menu
+        <header className={headerStyle}>
+            <h1 className={titleStyle}>{userID}</h1>
+            <div className={headerButtons}>
+                <div>
+                    <a className={myButton} href="/">
+                        Main Menu
+                    </a>
+                </div>
+                <div>
+                    {userID===-1 ? ( // Login yapılmamış durum
+                        <a className={myButton} href="/Login">
+                            Log In
                         </a>
-                    </li>
-                    <li style={liStyle}>
-                        <a style={linkStyle} href="/game">
-                            Play
+                    ) : ( //Login yapılmış durum
+                        <a className={myButton} href="/">
+                            Log Out
                         </a>
-                    </li>
-                    <li style={liStyle}>
-                        <a style={linkStyle} href="/leaderboard">
-                            Leaderboard
+                    )}
+                </div>
+                <div>
+                    {userID===-1 ? ( // Login yapılmamış durum
+                        <a className={myButton} href="/SignUp">
+                            Sign Up
                         </a>
-                    </li>
-                    <li style={liStyle}>
-                        <a style={linkStyle} href="/about">
-                            About Us
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                    ):( //Login yapılmış durum
+                       <p></p>
+                    )
+                    }
+                </div>
+                <div>
+                    <a className={myButton} href="/about">
+                        About Us
+                    </a>
+                </div>
+            </div>
         </header>
     );
 };
-
-const headerStyle = {
-    marginBottom: '10px',
-    background: 'linear-gradient(to right, #252525, #555555)',
-    color: 'white',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0.7%',
-    borderRadius: '10px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-};
-
-const logoStyle = {
-    margin: '1%',
-    marginLeft: '1%',
-};
-
-const logoImageStyle = {
-    width: '150px',
-    height: '80px',
-    borderRadius: '15px',
-    display: 'block', // Add this line to set the initial display property
-};
-
-const titleStyle = {
-    margin: 0,
-    padding: '10px 0',
-    fontSize: '24px',
-};
-
-const navStyle = {
-    listStyle: 'none',
-    padding: 0,
-};
-
-const ulStyle = {
-    display: 'flex',
-    listStyle: 'none',
-    margin: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10px 0',
-};
-
-const linkStyle = {
-    textTransform: 'uppercase',
-    textDecoration: 'none',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: '16px',
-};
-
-const liStyle = {
-    margin: '0 10px',
-    position: 'relative',
-    background: 'rgba(255, 255, 255, 0.1)',
-    padding: '10px 20px',
-    borderRadius: '10px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    transition: 'transform 0.3s',
-};
-
-// Define a media query to hide the logo on screens with a maximum width of 768px
-const mediaQuery = `@media (max-width: 768px) {
-    .logo {
-        display: none;
-    }
-}`;
-
-// Add the media query to your styles
-logoImageStyle[mediaQuery] = {
-    display: 'block',
-};
-
 export default Header;

@@ -10,6 +10,7 @@ import LogIn from './Components/Login';
 import Profile from './Components/Profile';
 
 function App() {
+
     const [userID, setUserID] = useState(() => {
         // Retrieve userID from localStorage on initial load
         return JSON.parse(localStorage.getItem('userID')) || -1;
