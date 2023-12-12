@@ -1,8 +1,10 @@
 import React from 'react';
 const Header = ({userID}) => {
+    console.log(userID + " header");
     return (
+
         <header style={headerStyle}>
-            <h1 style={titleStyle}>BLOCKS</h1>
+            <h1 style={titleStyle}>{userID}</h1>
             <nav style={navStyle}>
                 <ul style={ulStyle}>
                     <li style={liStyle}>

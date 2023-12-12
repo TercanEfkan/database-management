@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 
-function LogIn({setUserID}) {
+function LogIn({setUserID, userID}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const handleInputChangeUsername = (e) => {
@@ -21,7 +21,6 @@ function LogIn({setUserID}) {
             alert(response.data['message'] +" "+response.data['userid']+response.data['success']);
             if (response.data['success']){
                 setUserID(response.data['userid']);
-                window.location.href = '/';
             }
             // Handle success, update UI or show a success message
         } catch (error) {
@@ -29,43 +28,56 @@ function LogIn({setUserID}) {
             // Handle error, show an error message to the user
         }
     };
+    if((JSON.parse(localStorage.getItem('userID')) || -1) === -1){
+        return (
+            <div className="signup-container">
+                <h2 style={textStyle}>Log In</h2>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label style={textStyle}>
+                            Username:
+                            <input
+                                type="text"
+                                value={username}
+                                placeholder="Enter your username"
+                                style={textBoxStyle}
+                                onChange={handleInputChangeUsername}
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label style={textStyle}>
+                            Password:
+                            <input
+                                type="password"
+                                value={password}
+                                placeholder="Enter your password"
+                                style={textBoxStyle}
+                                onChange={handleInputChangePassword}
+                            />
+                        </label>
+                    </div>
+                    <div> {/* Container for stacking elements */}
+                        <button type="submit" style={buttonStyle}>
+                            Log In
+                        </button>
+                    </div>
+                </form>
+            </div>
+        );
+    }
+    else{
+        return (
+            <div className="signup-container">
+                    <div> {/* Container for stacking elements */}
+                        <button type="submit" style={buttonStyle} onClick={()=> {localStorage.setItem('userID', JSON.stringify(-1));}}>
+                            Log Out
+                        </button>
+                    </div>
+            </div>
+        );
+    }
 
-    return (
-        <div className="signup-container">
-            <h2 style={textStyle}>Log In</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label style={textStyle}>
-                        Username:
-                        <input
-                            type="text"
-                            value={username}
-                            placeholder="Enter your username"
-                            style={textBoxStyle}
-                            onChange={handleInputChangeUsername}
-                        />
-                    </label>
-                </div>
-                <div>
-                    <label style={textStyle}>
-                        Password:
-                        <input
-                            type="password"
-                            value={password}
-                            placeholder="Enter your password"
-                            style={textBoxStyle}
-                            onChange={handleInputChangePassword}
-                        />
-                    </label>
-                </div>
-                <div> {/* Container for stacking elements */}
-                    <button type="submit" style={buttonStyle}>
-                        Log In
-                    </button>
-                </div>
-            </form>
-        </div>
-    );
 }
 
 const textStyle = {
