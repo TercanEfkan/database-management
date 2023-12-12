@@ -18,7 +18,7 @@ function LogIn() {
                 username,
                 password,
             });
-            alert(response.data['message']);
+            alert(response.data['message'] +" "+response.data['userid']);
             // Handle success, update UI or show a success message
         } catch (error) {
             console.error('Error:', error);
