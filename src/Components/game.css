@@ -1,0 +1,33 @@
+*{
+    box-sizing: border-box;
+}
+
+.mainStyle{
+    display: flex;
+    align-items: center;
+}
+.rectStyle{
+    margin-bottom: 5vh;
+    margin-right: 3vw;
+    width:5vw;
+    height: 8vh;
+}
+.purple {
+    background-color: purple;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
+}

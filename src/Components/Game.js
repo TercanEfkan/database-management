@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import classNames from 'classnames';
+import './game.css'
 
 const Game = () => {
     let rectColor = "white";
@@ -437,29 +439,33 @@ const Game = () => {
             // ...
         };
     });
-    const rectStyle = {
-        backgroundColor: 'green',
-        width: `${2 * blockSize}px`, // Adjust width as needed
-        height: `${2 * blockSize}px`, // Set the height to match the game board
-        position: 'absolute',
-        left: '20vw',
-        top: '5vw',
-    };
+
+    const purple = classNames('rectStyle', 'purple');
+    const green = classNames('rectStyle', 'green');
+    const red = classNames('rectStyle', 'red');
+    const yellow = classNames('rectStyle', 'yellow');
+    const orange = classNames('rectStyle', 'orange');
+    const mainStyle = 'mainStyle'
+    const gameBody = 'gameBody'
+
     return (
-        <div style={{ position: 'relative' }}>
-            <div style={{ ...rectStyle, backgroundColor: 'purple', top: '5vw' }}></div>
-            <div style={{ ...rectStyle, backgroundColor: 'green', top: '10vw' }}></div>
-            <div style={{ ...rectStyle, backgroundColor: 'yellow', top: '15vw' }}></div>
-            <div style={{ ...rectStyle, backgroundColor: 'orange', top: '20vw' }}></div>
-            <div style={{ ...rectStyle, backgroundColor: 'red', top: '25vw' }}></div>
+        <main className={mainStyle}>
+            <div>
+                <div className={red}></div>
+                <div className={orange}></div>
+                <div className={yellow}></div>
+                <div className={green}></div>
+                <div className={purple}></div>
+            </div>
+
             {/* HTML/JSX for rendering the game */}
-            <canvas
+                <canvas
                 id="board"
                 width={cols * blockSize}
                 height={rows * blockSize}
                 style={gameStyle}
             ></canvas>
-        </div>
+        </main>
     );
 };
 const gameStyle = {
