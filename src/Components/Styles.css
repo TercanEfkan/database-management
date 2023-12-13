@@ -1,5 +1,5 @@
 
-.menuBodyStyle {
+.bodyStyle {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +10,10 @@
     border: 10px solid grey;
 }
 
+.leaderBoard{
+    background: linear-gradient(to bottom right, #600, #066);
+}
+/* background: linear-gradient(to bottom right, #600, #066); */
 .block-text {
     margin-top: 4vh;
     margin-bottom: 4vh;

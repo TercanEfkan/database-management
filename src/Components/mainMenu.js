@@ -2,7 +2,7 @@ import React from 'react';
 import './Styles.css';
 const MainMenu = ({userID}) => {
 
-    const menuBodyStyle = 'menuBodyStyle'
+    const bodyStyle = 'bodyStyle'
     const myButton = 'myButton'
     const red = 'red';
     const blue = 'blue';
@@ -12,7 +12,7 @@ const MainMenu = ({userID}) => {
     const orange = 'orange';
 
     return (
-        <div className={menuBodyStyle}>
+        <div className={bodyStyle}>
 
             <div className="block-text">
                 <span className={purple}>B</span>
