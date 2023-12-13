@@ -4,12 +4,12 @@ const MainMenu = ({userID}) => {
 
     const bodyStyle = 'bodyStyle'
     const myButton = 'myButton'
-    const red = 'red';
-    const blue = 'blue';
-    const green = 'green';
-    const yellow = 'yellow';
-    const purple = 'purple';
-    const orange = 'orange';
+    const red = 'redColor';
+    const blue = 'blueColor';
+    const green = 'greenColor';
+    const yellow = 'yellowColor';
+    const purple = 'purpleColor';
+    const orange = 'orangeColor';
 
     return (
         <div className={bodyStyle}>

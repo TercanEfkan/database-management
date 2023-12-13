@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 .bodyStyle {
     display: flex;
@@ -21,28 +24,57 @@
     font-size: 15vh;
 }
 
-.red {
+.redColor {
     color: red;
 }
+.redBackgroundColor {
+    background-color: red;
+}
 
-.blue {
+.blueColor {
     color: blue;
 }
+.blueBackgroundColor {
+    background-color: blue;
+}
 
-.green {
+.greenColor {
     color: green;
 }
+.greenBackgroundColor {
+    background-color: green;
+}
 
-.yellow {
+.yellowColor {
     color: yellow;
 }
-
-.purple {
-    color: purple;
+.yellowBackgroundColor {
+    background-color: yellow;
 }
 
-.orange {
+.purpleColor {
+    color: purple;
+}
+.purpleBackgroundColor {
+    background-color: purple;
+}
+
+.orangeColor {
     color: orange;
+}
+.orangeBackgroundColor {
+    background-color: orange;
+}
+
+.mainStyle{
+    display: flex;
+    align-items: center;
+}
+.rectStyle{
+    margin-bottom: 5vh;
+    margin-right: 3vw;
+    width:5vw;
+    height: 8vh;
 }
 
 .headerStyle{

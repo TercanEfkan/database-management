@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
-import './game.css'
+import './Styles.css'
 
 const Game = () => {
     let rectColor = "white";
@@ -440,22 +440,22 @@ const Game = () => {
         };
     });
 
-    const purple = classNames('rectStyle', 'purple');
-    const green = classNames('rectStyle', 'green');
-    const red = classNames('rectStyle', 'red');
-    const yellow = classNames('rectStyle', 'yellow');
-    const orange = classNames('rectStyle', 'orange');
+    const purpleColor = classNames('rectStyle', 'purpleBackgroundColor');
+    const greenColor = classNames('rectStyle', 'greenBackgroundColor');
+    const redColor = classNames('rectStyle', 'redBackgroundColor');
+    const yellowColor = classNames('rectStyle', 'yellowBackgroundColor');
+    const orangeColor = classNames('rectStyle', 'orangeBackgroundColor');
     const mainStyle = 'mainStyle'
-    const gameBody = 'gameBody'
 
     return (
         <main className={mainStyle}>
+
             <div>
-                <div className={red}></div>
-                <div className={orange}></div>
-                <div className={yellow}></div>
-                <div className={green}></div>
-                <div className={purple}></div>
+                <div className={redColor}></div>
+                <div className={orangeColor}></div>
+                <div className={yellowColor}></div>
+                <div className={greenColor}></div>
+                <div className={purpleColor}></div>
             </div>
 
             {/* HTML/JSX for rendering the game */}
