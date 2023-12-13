@@ -11,6 +11,7 @@ import Profile from './Components/Profile';
 
 function App() {
 
+
     const [userID, setUserID] = useState(() => {
         // Retrieve userID from localStorage on initial load
         return JSON.parse(localStorage.getItem('userID')) || -1;
@@ -41,7 +42,14 @@ function App() {
 }
 
 const appStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    boxSizing: 'border-box',
     background: 'linear-gradient(to right, #333, #555)',
+    height: '95vh', // ana gövde ekranın tamamını kapsar
+    margin: '0px',
+
 };
 
 export default App;

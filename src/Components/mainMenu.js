@@ -1,44 +1,45 @@
 import React from 'react';
+import './Styles.css';
 const MainMenu = ({userID}) => {
-    const gameLink = () => {
-        window.location.href = '/game';
-    };
-    const leaderboardLink = () => {
-        window.location.href = '/leaderboard';
-    };
-    const profileLink = () => {
-        window.location.href = '/profile';
-    };
+
+    const menuBodyStyle = 'menuBodyStyle'
+    const myButton = 'myButton'
+    const red = 'red';
+    const blue = 'blue';
+    const green = 'green';
+    const yellow = 'yellow';
+    const purple = 'purple';
+    const orange = 'orange';
+
     return (
-        <div style={middleStyle}>
-            <button style = {buttonStyle} onClick={gameLink} >Play</button>
-            <button style = {buttonStyle} onClick={leaderboardLink}>LeaderBoard</button>
-            <button style = {buttonStyle} onClick={profileLink} >Profile</button>
+        <div className={menuBodyStyle}>
+
+            <div className="block-text">
+                <span className={purple}>B</span>
+                <span className={green}>L</span>
+                <span className={yellow}>O</span>
+                <span className={orange}>C</span>
+                <span className={red}>K</span>
+                <span className={blue}>S</span>
+            </div>
+
+                <a className={myButton} href="/Game">
+                    Play
+                </a>
+
+                <a className={myButton} href="/leaderBoard">
+                    LeaderBoard
+                </a>
+
+                {userID !== -1 ? (
+                    <a className={myButton} href="/Profile">
+                        Profile
+                    </a>
+                ) : null}
+
+
         </div>
     );
-};
-const buttonStyle = {
-
-    width: '30vw',
-    height: '3vw',
-    textDecoration: 'none',
-    marginBottom: '5px',
-    color: '#000000',
-    background: 'linear-gradient(to right, #202020, #404040)',
-};
-const middleStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: '30vw', // Shift 50px to the left
-    width: '45vw',
-    height: '30vw',
-    backgroundColor: '#333',
-    color: '#000000',
-    fontSize: '1rem',
-    border: '10px solid grey',
-    boxSizing: 'border-box',
 };
 
 export default MainMenu;

@@ -16,7 +16,7 @@ const MainMenu = () => {
     return (
 
         <div>
-            <div style={containerStyle}> // Efkan
+            <div style={containerStyle}>
                 <div style={imgBoxStyle}>
                     <a href={kiracLink} target="_blank"> <img src={kiracImg} alt="kirac" style={imageStyle}/></a>
                 </div>
@@ -29,7 +29,7 @@ const MainMenu = () => {
                 </div>
             </div>
 
-            <div style={containerStyle}> // Enes
+            <div style={containerStyle}>
                 <div style={imgBoxStyle}>
                     <a href={enesLink} target="_blank"> <img src={enesImg} alt="enes" style={imageStyle}/></a>
                 </div>
@@ -39,7 +39,7 @@ const MainMenu = () => {
                 </div>
             </div>
 
-            <div style={containerStyle}> // Efe
+            <div style={containerStyle}>
                 <div style={imgBoxStyle}>
                     <a href={efeLink} target="_blank"> <img src={efeImg} alt="efe" style={imageStyle}/></a>
                 </div>
@@ -52,7 +52,7 @@ const MainMenu = () => {
                 </div>
             </div>
 
-            <div style={containerStyle}> // Boran
+            <div style={containerStyle}>
                 <div style={imgBoxStyle}>
                     <a href={boranLink} target="_blank"> <img src={boranImg} alt="boran" style={imageStyle}/></a>
                 </div>
