@@ -7,8 +7,8 @@
     flex-direction: column;
     align-items: center;
     padding-top: 3vh;
-    width: 45vw;
-    height: 65vh;
+    width: 50vw;
+    height: 60vh;
     color: #000000;
     border: 10px solid grey;
 }
@@ -21,7 +21,7 @@
     margin-top: 4vh;
     margin-bottom: 4vh;
     display: inline-block;
-    font-size: 15vh;
+    font-size: 11vw;
 }
 
 .redColor {
@@ -101,6 +101,7 @@
     display: flex;
     justify-content: space-around; /* Düğmeleri eşit aralıklarla hizala */
     align-items: center; /* Düğmeleri dikeyde ortala */
+
 }
 
 .myButton{
@@ -108,15 +109,18 @@
     color: white;
     background-color: #333333;
     padding: 10px 40px;
-    margin-left: 5px;
+    margin-left: 1vw;
     margin-top: 5px;
     border-radius: 10px;
     letter-spacing: 2px; /*Harfler arasındaki boşluk*/
     font-weight: bold;
     border-color: #555555 #222222 #222222 #555555;  /*butona basma hissiyatı için renklendirme*/
-    border-width: 5px;
+    border-width: 0.7vh;
     border-style: solid;
     transition: all 0.3s; /*geçiş efekti süresi*/
+    width: 10vw;
+    height: 2.3vw;
+    font-size:1.5vh
 }
 .myButton:hover{
     background-color: #222222;

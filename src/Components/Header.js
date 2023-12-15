@@ -23,11 +23,11 @@ const Header = ({userID}) => {
                 </a>
 
                 {userID===-1 ? ( // Login yapılmamış durum
-                    <a className={myButton} href="/Login">
+                    <a className={myButton} href="/Login" >
                         Log In
                     </a>
                 ) : ( //Login yapılmış durum
-                    <a className={myButton} href="/">
+                    <a className={myButton} href="/" onClick={()=> {localStorage.setItem('userID', JSON.stringify(-1)); window.location.href = '/';}}>
                             Log Out
                     </a>
                 )}
