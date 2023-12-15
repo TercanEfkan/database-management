@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import './Styles.css';
 
 function LogIn({setUserID, userID}) {
     const [username, setUsername] = useState('');
@@ -25,55 +26,43 @@ function LogIn({setUserID, userID}) {
             // Handle error, show an error message to the user
         }
     };
-    if((JSON.parse(localStorage.getItem('userID')) || -1) === -1){
-        return (
-            <div className="signup-container">
-                <h2 style={textStyle}>Log In</h2>
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label style={textStyle}>
-                            Username:
-                            <input
-                                type="text"
-                                value={username}
-                                placeholder="Enter your username"
-                                style={textBoxStyle}
-                                onChange={handleInputChangeUsername}
-                            />
-                        </label>
-                    </div>
-                    <div>
-                        <label style={textStyle}>
-                            Password:
-                            <input
-                                type="password"
-                                value={password}
-                                placeholder="Enter your password"
-                                style={textBoxStyle}
-                                onChange={handleInputChangePassword}
-                            />
-                        </label>
-                    </div>
-                    <div> {/* Container for stacking elements */}
-                        <button type="submit" style={buttonStyle}>
-                            Log In
-                        </button>
-                    </div>
-                </form>
-            </div>
-        );
-    }
-    else{
-        return (
-            <div className="signup-container">
-                    <div> {/* Container for stacking elements */}
-                        <button type="submit" style={buttonStyle} onClick={()=> {localStorage.setItem('userID', JSON.stringify(-1)); window.location.href = '/';}}>
-                            Log Out
-                        </button>
-                    </div>
-            </div>
-        );
-    }
+    return (
+        <div className="signup-container">
+            <h2 style={textStyle}>Log In</h2>
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label style={textStyle}>
+                        Username:
+                        <input
+                            type="text"
+                            value={username}
+                            placeholder="Enter your username"
+                            style={textBoxStyle}
+                            onChange={handleInputChangeUsername}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label style={textStyle}>
+                        Password:
+                        <input
+                            type="password"
+                            value={password}
+                            placeholder="Enter your password"
+                            style={textBoxStyle}
+                            onChange={handleInputChangePassword}
+                        />
+                    </label>
+                </div>
+                <div> {/* Container for stacking elements */}
+                    <button type="submit" className="myButton">
+                        Log In
+                    </button>
+                </div>
+            </form>
+        </div>
+    );
+
 
 }
 
