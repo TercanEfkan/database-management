@@ -11,12 +11,13 @@
     height: 60vh;
     color: #000000;
     border: 10px solid grey;
+    background: linear-gradient(to bottom right, #600, #036);
 }
 
 .leaderBoard{
-    background: linear-gradient(to bottom right, #600, #066);
+
 }
-/* background: linear-gradient(to bottom right, #600, #066); */
+
 .block-text {
     margin-top: 4vh;
     margin-bottom: 4vh;
@@ -75,6 +76,15 @@
     margin-right: 3vw;
     width:5vw;
     height: 8vh;
+}
+.textBox{
+    width: 15vw;
+    height: 2vw;
+    backgroundColor: #333;
+    fontSize: 1.5em;
+    marginLeft: 1vw;
+    marginBottom: 1vw;
+    background: #222222;
 }
 
 .headerStyle{

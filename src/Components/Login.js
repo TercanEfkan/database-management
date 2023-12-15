@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import axios from "axios";
 import './Styles.css';
 
+
 function LogIn({setUserID, userID}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const bodyStyle = 'bodyStyle'
+
     const handleInputChangeUsername = (e) => {setUsername(e.target.value);};
     const handleInputChangePassword = (e) => {setPassword(e.target.value);};
     const handleSubmit = async (e) => {
@@ -27,7 +30,7 @@ function LogIn({setUserID, userID}) {
         }
     };
     return (
-        <div className="signup-container">
+        <div className={bodyStyle}>
             <h2 style={textStyle}>Log In</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -68,7 +71,7 @@ function LogIn({setUserID, userID}) {
 
 const textStyle = {
     fontSize: '1.5em',
-    color: '#000',
+    color: '#67f',
 };
 
 const textBoxStyle = {

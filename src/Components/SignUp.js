@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import axios
+import './Styles.css';
 
 function SignUp() {
     const [username, setUsername] = useState('');
@@ -52,7 +53,7 @@ function SignUp() {
     };
 
     return (
-        <div className="signup-container">
+        <div className="bodyStyle">
             <h2 style={textStyle}>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <div>
@@ -92,7 +93,7 @@ function SignUp() {
                     </label>
                 </div>
                 <div> {/* Container for stacking elements */}
-                    <button type="submit" style={buttonStyle}>
+                    <button type="submit" className="myButton">
                         Sign Up
                     </button>
                 </div>
@@ -115,7 +116,7 @@ function isAlphanumericWithSymbols(word) {
 
 const textStyle = {
     fontSize: '1.5em',
-    color: '#000',
+    color: '#67f',
 };
 
 const textBoxStyle = {
