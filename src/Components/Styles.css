@@ -1,0 +1,140 @@
+*{
+    box-sizing: border-box;
+}
+
+.bodyStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3vh;
+    width: 50vw;
+    height: 60vh;
+    color: #000000;
+    border: 10px solid grey;
+    background: linear-gradient(to bottom right, #600, #036);
+}
+
+.leaderBoard{
+
+}
+
+.block-text {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    display: inline-block;
+    font-size: 11vw;
+}
+
+.redColor {
+    color: red;
+}
+.redBackgroundColor {
+    background-color: red;
+}
+
+.blueColor {
+    color: blue;
+}
+.blueBackgroundColor {
+    background-color: blue;
+}
+
+.greenColor {
+    color: green;
+}
+.greenBackgroundColor {
+    background-color: green;
+}
+
+.yellowColor {
+    color: yellow;
+}
+.yellowBackgroundColor {
+    background-color: yellow;
+}
+
+.purpleColor {
+    color: purple;
+}
+.purpleBackgroundColor {
+    background-color: purple;
+}
+
+.orangeColor {
+    color: orange;
+}
+.orangeBackgroundColor {
+    background-color: orange;
+}
+
+.mainStyle{
+    display: flex;
+    align-items: center;
+}
+.rectStyle{
+    margin-bottom: 5vh;
+    margin-right: 3vw;
+    width:5vw;
+    height: 8vh;
+}
+.textBox{
+    width: 15vw;
+    height: 2vw;
+    backgroundColor: #333;
+    fontSize: 1.5em;
+    marginLeft: 1vw;
+    marginBottom: 1vw;
+    background: #222222;
+}
+
+.headerStyle{
+    width: 98vw;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #252525, #555555);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7%;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.titleStyle{
+    display: flex;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 24px;
+}
+
+.headerButtons {
+    display: flex;
+    justify-content: space-around; /* Düğmeleri eşit aralıklarla hizala */
+    align-items: center; /* Düğmeleri dikeyde ortala */
+
+}
+
+.myButton{
+    text-decoration: none;
+    color: white;
+    background-color: #333333;
+    padding: 10px 40px;
+    margin-left: 1vw;
+    margin-top: 5px;
+    border-radius: 10px;
+    letter-spacing: 2px; /*Harfler arasındaki boşluk*/
+    font-weight: bold;
+    border-color: #555555 #222222 #222222 #555555;  /*butona basma hissiyatı için renklendirme*/
+    border-width: 0.7vh;
+    border-style: solid;
+    transition: all 0.3s; /*geçiş efekti süresi*/
+    width: 10vw;
+    height: 2.3vw;
+    font-size:1.5vh
+}
+.myButton:hover{
+    background-color: #222222;
+}
+.myButton:active{
+    border-color: #222222 #555555 #555555 #222222; /*butona basma hissiyatı için renklendirme*/
+}
