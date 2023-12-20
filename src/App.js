@@ -8,6 +8,7 @@ import AboutUs from './Components/aboutUs';
 import SignUp from './Components/SignUp';
 import LogIn from './Components/Login';
 import Profile from './Components/Profile';
+import Ms from './Components/MineSweeper';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                     <Route path="/login" element={<LogIn setUserID={setUserID}  />} />
                     <Route path="/signup" element={<SignUp setUserID={setUserID} />} />
                     <Route path="/profile" element={<Profile userID={userID} />} />
+                    <Route path="/minesweeper" element={<Ms userID={userID} />} />
                 </Routes>
             </BrowserRouter>
             {/* Other UI elements */}

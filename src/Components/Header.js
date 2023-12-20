@@ -41,6 +41,9 @@ const Header = ({userID}) => {
                 <a className={myButton} href="/about">
                         About Us
                 </a>
+                <a className={myButton} href="/minesweeper">
+                    Minesweeper
+                </a>
             </div>
         </header>
     );
