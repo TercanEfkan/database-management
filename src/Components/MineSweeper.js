@@ -13,7 +13,7 @@ const Game = () => {
     let blockPixelSize = 25;
     // Klavye modunu izleyen state
     const [mode, setmode] = useState(false);
-    const mines = [];
+    const map = [];
 
 
 
@@ -23,37 +23,39 @@ const Game = () => {
             board = document.getElementById("board");
             context = board.getContext("2d"); //used for drawing on the board
             console.log("before the filling");
-            fillMines();
+            fillMap();
             console.log("after the filling");
             draw() // ekrana karoları çizme
             setInterval(update, 1000 / 60); //100 milliseconds
 
         };
-        const fillMines = () => {
+        const fillMap = () => {
             for (let i = 0; i < rowCount; i++){
                 const temp = [];
                 for (let j = 0; j < colCount; j++){
                     temp.push(new Block());
                 }
-                mines.push(temp);
+                map.push(temp);
             }
-
-
             for (let i = 0; i< minesNumber; i++){
                 let r;
                 let c;
                 do {
                     r = randomInt(0,rowCount);
                     c = randomInt(0, colCount);
-                } while (mines[r][c].value === -1);
+                } while (map[r][c].value === -1);
 
-                mines[r][c].value = -1;
+                map[r][c].value = -1;
+            }
+            for(let i = 0; i< rowCount; i++){
+                for(let j = 0; j<colCount; j++){
+                }
             }
             console.log('Mines List:');
             for (let i = 0; i < rowCount; i++) {
                 let row = '';
                 for (let j = 0; j < colCount; j++) {
-                    row += mines[i][j].value === -1 ? 'X ' : '0 ';
+                    row += map[i][j].value === -1 ? 'X ' : map[i][j].value+ ' ' ;
                 }
                 console.log(row);
             }
