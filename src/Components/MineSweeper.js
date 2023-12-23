@@ -5,7 +5,6 @@ const Game = () => {
     let rowNumber = 20;
     let columnNumber = 20;
     let minesNumber = Math.floor((rowNumber * columnNumber) / 5);
-    //let backendMap
     const mainStyle = 'mainStyle'
     const squareColor = '#fff'; // Beyaz renk
     const lineColor ='#000'; // Siyah renk
@@ -14,75 +13,56 @@ const Game = () => {
     let blockPixelSize = 25;
     // Klavye modunu izleyen state
     const [mode, setmode] = useState(false);
+    const mines = [];
 
 
- 
+
     useEffect(() => {
-        let backendMap
         const initializeGame = () => {
 
             board = document.getElementById("board");
             context = board.getContext("2d"); //used for drawing on the board
-            //createBackendMap()
+            console.log("before the filling");
+            fillMines();
+            console.log("after the filling");
             draw() // ekrana karoları çizme
             setInterval(update, 1000 / 60); //100 milliseconds
 
         };
-        const update = () => {
-            document.addEventListener('keyup', handleKeyUp);
+        const fillMines = () => {
+            for (let i = 0; i < rowCount; i++){
+                const temp = [];
+                for (let j = 0; j < colCount; j++){
+                    temp.push(new Block());
+                }
+                mines.push(temp);
+            }
 
+
+            for (let i = 0; i< minesNumber; i++){
+                let r;
+                let c;
+                do {
+                    r = randomInt(0,rowCount);
+                    c = randomInt(0, colCount);
+                } while (mines[r][c].value === -1);
+
+                mines[r][c].value = -1;
+            }
+            console.log('Mines List:');
+            for (let i = 0; i < rowCount; i++) {
+                let row = '';
+                for (let j = 0; j < colCount; j++) {
+                    row += mines[i][j].value === -1 ? 'X ' : '0 ';
+                }
+                console.log(row);
+            }
+        }
+        const update = () => {
             addClickEvent(); //Tıklama işlemi
         }
-        const createBackendMap = () => {
-            backendMap = createArray(rowNumber,columnNumber);
-            createMines();
-            findValueAroundOfMines();
-        }
-        const createArray = (rowNumber, columnNumber)=>{
-            let myArray = new Array(rowNumber)
-            let block = new Block()
 
-            for (let i = 0; i < rowNumber; i++) {
-                myArray[i] = new Array(columnNumber);
 
-                for (let j = 0; j < columnNumber; j++) {
-                    myArray[i][j] = block;
-                }
-            }
-            return myArray;
-        }
-        const createMines = () =>{
-
-            for (let i = 0; i < minesNumber;) {
-                let randomRow = randomInt(0,rowNumber)
-                let randomColumn = randomInt(0,columnNumber)
-
-                if(backendMap[randomRow][randomColumn]===0){
-                    backendMap[randomRow][randomColumn].value=-1;
-                    i++;
-                }
-            }
-        }
-        function findValueAroundOfMines(){ // mayının konumunu bulur
-            for (let i = 0; i < backendMap.length; i++) {
-                for (let j = 0; j < backendMap[i].length; j++) {
-                    if (backendMap[i][j] === -1){
-                        increaseValueArounOfMines(i,j)
-                    }
-                }
-            }
-        }
-
-        function increaseValueArounOfMines(row,column){ //mayının çevresindeki block ların değerini arttırır
-
-            for (let i = row-1; i < row+2; i++) {
-                for (let j = column-1; j < column+2; j++) {
-                    if (0<=i && i<rowNumber && 0<=j && j<columnNumber && backendMap[i][j] !== -1){
-                        backendMap[i][j] += 1;
-                    }
-                }
-            }
-        }
         function randomInt(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
@@ -103,10 +83,23 @@ const Game = () => {
 
         const addClickEvent = () => {
             board.addEventListener('click', handleSquareClick);
+            board.addEventListener('contextmenu', handleRightClick);
         };
+        const handleRightClick = (event) => {
+            event.preventDefault();
+            // Your logic for right-click (flag placement)
+            let gameAreaBorderSize = 10;
+            const mouseX = event.clientX - board.getBoundingClientRect().left - gameAreaBorderSize;
+            const mouseY = event.clientY - board.getBoundingClientRect().top - gameAreaBorderSize;
 
+            const clickedCol = Math.floor(mouseX / blockPixelSize);
+            const clickedRow = Math.floor(mouseY / blockPixelSize);
+
+            flagSquare(clickedRow, clickedCol);
+            // Handle flag placement logic at the clickedRow and clickedCol
+            // Example: toggleFlag(clickedRow, clickedCol);
+        };
         const handleSquareClick = (event) => { //tıklama işlemi
-
             // game Area çevresindeki border kordinatlarda sapmaya neden oluyor
             let gameAreaBorderSize = 10
             //mouse un tıkladığı yerin kordinatları.
@@ -121,12 +114,6 @@ const Game = () => {
         };
 
         // mode değişikliği
-        const handleKeyUp = (event) => {
-            if (event.code === 'Space') {
-                // Mod aç kapa işlemi
-                setmode(!mode);
-            }
-        };
 
         const changeSquare = (row, col) => { // Tıklanan kareye yapılacak olan işlem
             // row, col değerleri istenecek. işlem yapılacak kare için
@@ -141,13 +128,19 @@ const Game = () => {
                 // Karelerin açılım işlemi
             }
 
-            //let value = backendMap[row][col].value;
             context.fillStyle = lineColor;
             context.font = "bold 12px Arial";
             context.textAlign = "center";
             context.textBaseline = "middle";
             context.fillText(1/*value,*/, col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2);
         };
+        const flagSquare=(row, col) =>{
+            context.fillStyle = '#F00';
+            context.beginPath();
+            context.arc(col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2, 4, 0, 2 * Math.PI, true);
+            context.closePath();
+            context.fill();
+        }
 
         class Block {
             constructor() {
@@ -160,18 +153,18 @@ const Game = () => {
         initializeGame();
     });
 
-return (
+    return (
 
-    <main className={mainStyle}>
-        {/* HTML/JSX for rendering the game */}
-        <canvas
-            id="board"
-            width={500}
-            height={500}
-            style={gameStyle}
-        ></canvas>
-    </main>
-);
+        <main className={mainStyle}>
+            {/* HTML/JSX for rendering the game */}
+            <canvas
+                id="board"
+                width={500}
+                height={500}
+                style={gameStyle}
+            ></canvas>
+        </main>
+    );
 };
 const gameStyle = {
     fontSize: '1%',
