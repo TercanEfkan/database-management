@@ -4,7 +4,7 @@ const Game = () => {
     let context;
     let rowNumber = 20;
     let columnNumber = 20;
-    let minesNumber = Math.floor((rowNumber * columnNumber) / 5);
+    let minesNumber = Math.floor((rowNumber * columnNumber) / 20);
     const mainStyle = 'mainStyle'
     const squareColor = '#fff'; // Beyaz renk
     const lineColor ='#000'; // Siyah renk
@@ -26,7 +26,7 @@ const Game = () => {
             fillMap();
             console.log("after the filling");
             draw() // ekrana karoları çizme
-            setInterval(update, 1000 / 60); //100 milliseconds
+            addClickEvent();
 
         };
         const fillMap = () => {
@@ -49,8 +49,18 @@ const Game = () => {
             }
             for(let i = 0; i< rowCount; i++){
                 for(let j = 0; j<colCount; j++){
+                    if (map[i][j].value === -1){
+                        for (let k = i-1; k <= i+1; k++) {
+                            for (let l = j-1; l <= j+1; l++) {
+                                if (0<=k && k<rowNumber && 0<=l && l<columnNumber && map[k][l].value !== -1){
+                                    map[k][l].value +=1;
+                                }
+                            }
+                        }
+                    }
                 }
             }
+
             console.log('Mines List:');
             for (let i = 0; i < rowCount; i++) {
                 let row = '';
@@ -60,8 +70,29 @@ const Game = () => {
                 console.log(row);
             }
         }
-        const update = () => {
-            addClickEvent(); //Tıklama işlemi
+        const clicked = (clickedRow,clickedColumn) =>{
+            if(0<=clickedRow && clickedRow<rowNumber && 0<=clickedColumn && clickedColumn<columnNumber && map[clickedRow][clickedColumn].isOpen===false){
+                if (map[clickedRow][clickedColumn].value === -1){
+                    //game over
+                    return -1;
+                }
+                if (map[clickedRow][clickedColumn].value === 0){
+                    map[clickedRow][clickedColumn].isOpen=true;
+                    clicked(clickedRow-1,clickedColumn)
+                    clicked(clickedRow+1,clickedColumn)
+                    clicked(clickedRow,clickedColumn-1)
+                    clicked(clickedRow,clickedColumn+1)
+                    clicked(clickedRow-1,clickedColumn-1)
+                    clicked(clickedRow-1,clickedColumn+1)
+                    clicked(clickedRow+1,clickedColumn-1)
+                    clicked(clickedRow+1,clickedColumn+1)
+                }
+                map[clickedRow][clickedColumn].isOpen=true;
+                if (map[clickedRow][clickedColumn].value !==-1){
+                    changeSquare(clickedRow,clickedColumn);
+                }
+            }
+            return null;
         }
 
 
@@ -111,7 +142,7 @@ const Game = () => {
             const clickedCol = Math.floor(mouseX / blockPixelSize);
             const clickedRow = Math.floor(mouseY / blockPixelSize);
 
-            changeSquare(clickedRow, clickedCol);
+            return clicked(clickedRow, clickedCol);
 
         };
 
@@ -122,26 +153,21 @@ const Game = () => {
             // arrayden o kareneni değerleri çekilecek
             // mode istenecek karelere flag koymak için
 
-            if(mode){
-                // flag koyma işlemi
-                // karenin flag değeri değiştirilecek
-            }
-            else{
-                // Karelerin açılım işlemi
-            }
-
             context.fillStyle = lineColor;
             context.font = "bold 12px Arial";
             context.textAlign = "center";
             context.textBaseline = "middle";
-            context.fillText(1/*value,*/, col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2);
+            context.fillText(map[row][col].value, col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2);
         };
         const flagSquare=(row, col) =>{
-            context.fillStyle = '#F00';
-            context.beginPath();
-            context.arc(col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2, 4, 0, 2 * Math.PI, true);
-            context.closePath();
-            context.fill();
+            if (map[row][col].isOpen===false){
+                context.fillStyle = '#F00';
+                context.beginPath();
+                context.arc(col * blockPixelSize + blockPixelSize / 2, row * blockPixelSize + blockPixelSize / 2, 4, 0, 2 * Math.PI, true);
+                context.closePath();
+                context.fill();
+            }
+
         }
 
         class Block {
