@@ -73,8 +73,13 @@ const Game = () => {
         const clicked = (clickedRow,clickedColumn) =>{
             if(0<=clickedRow && clickedRow<rowNumber && 0<=clickedColumn && clickedColumn<columnNumber && map[clickedRow][clickedColumn].isOpen===false){
                 if (map[clickedRow][clickedColumn].value === -1){
-                    //game over
-                    return -1;
+                    context.clearRect(0, 0, board.width, board.height);
+
+                    // Display game over text
+                    context.fillStyle = 'black';
+                    context.font = '40px Arial';
+                    context.fillText('Game Over!', board.width / 2 - 100, board.height / 2);
+                    return;
                 }
                 if (map[clickedRow][clickedColumn].value === 0){
                     map[clickedRow][clickedColumn].isOpen=true;
@@ -167,7 +172,6 @@ const Game = () => {
                 context.closePath();
                 context.fill();
             }
-
         }
 
         class Block {
