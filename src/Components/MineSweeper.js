@@ -2,24 +2,20 @@ import React, { useState, useEffect } from 'react';
 const Game = () => {
     let board;
     let context;
-    let rowNumber = 20;
-    let columnNumber = 20;
-    let minesNumber = Math.floor((rowNumber * columnNumber) / 20);
-    const mainStyle = 'mainStyle'
-    const squareColor = '#fff'; // Beyaz renk
-    const lineColor ='#000'; // Siyah renk
     const rowCount = 20;
     const colCount = 20;
+    let minesNumber = Math.floor((rowCount * colCount) / 20);
+    const squareColor = '#fff'; // Beyaz renk
+    const lineColor ='#000'; // Siyah renk
     let blockPixelSize = 25;
-    // Klavye modunu izleyen state
-    const [mode, setmode] = useState(false);
     const map = [];
+    let [totalScore, setTotalScore] = useState(0); // Score'u izleyen state
+    let score;
 
 
 
     useEffect(() => {
         const initializeGame = () => {
-
             board = document.getElementById("board");
             context = board.getContext("2d"); //used for drawing on the board
             console.log("before the filling");
@@ -29,7 +25,10 @@ const Game = () => {
             addClickEvent();
 
         };
+
         const fillMap = () => {
+
+            // Map bilgilerinin içereceği list in oluşturulması
             for (let i = 0; i < rowCount; i++){
                 const temp = [];
                 for (let j = 0; j < colCount; j++){
@@ -37,6 +36,8 @@ const Game = () => {
                 }
                 map.push(temp);
             }
+
+            // mayınların random listeye yerleştirme
             for (let i = 0; i< minesNumber; i++){
                 let r;
                 let c;
@@ -47,12 +48,14 @@ const Game = () => {
 
                 map[r][c].value = -1;
             }
+
+            // mayınların çevresindeki karelerin değerinin arttırılması.
             for(let i = 0; i< rowCount; i++){
                 for(let j = 0; j<colCount; j++){
                     if (map[i][j].value === -1){
                         for (let k = i-1; k <= i+1; k++) {
                             for (let l = j-1; l <= j+1; l++) {
-                                if (0<=k && k<rowNumber && 0<=l && l<columnNumber && map[k][l].value !== -1){
+                                if (0<=k && k<rowCount && 0<=l && l<colCount && map[k][l].value !== -1){
                                     map[k][l].value +=1;
                                 }
                             }
@@ -60,7 +63,7 @@ const Game = () => {
                     }
                 }
             }
-
+            /* konsolda kontrol etme amaçlı
             console.log('Mines List:');
             for (let i = 0; i < rowCount; i++) {
                 let row = '';
@@ -68,38 +71,49 @@ const Game = () => {
                     row += map[i][j].value === -1 ? 'X ' : map[i][j].value+ ' ' ;
                 }
                 console.log(row);
-            }
+            }*/
         }
         const clicked = (clickedRow,clickedColumn) =>{
-            if(0<=clickedRow && clickedRow<rowNumber && 0<=clickedColumn && clickedColumn<columnNumber && map[clickedRow][clickedColumn].isOpen===false){
+            if(0<=clickedRow && clickedRow<rowCount && 0<=clickedColumn && clickedColumn<colCount && map[clickedRow][clickedColumn].isOpen===false){
                 if (map[clickedRow][clickedColumn].value === -1){
-                    context.clearRect(0, 0, board.width, board.height);
-
-                    // Display game over text
-                    context.fillStyle = 'black';
-                    context.font = '40px Arial';
-                    context.fillText('Game Over!', board.width / 2 - 100, board.height / 2);
+                    // tüm mayınların açılması. patlama sesi ekle.
+                    showTheMines()
+                    //information box a bilgileri yazdır.
                     return;
                 }
                 if (map[clickedRow][clickedColumn].value === 0){
                     map[clickedRow][clickedColumn].isOpen=true;
-                    clicked(clickedRow-1,clickedColumn)
-                    clicked(clickedRow+1,clickedColumn)
-                    clicked(clickedRow,clickedColumn-1)
-                    clicked(clickedRow,clickedColumn+1)
-                    clicked(clickedRow-1,clickedColumn-1)
-                    clicked(clickedRow-1,clickedColumn+1)
-                    clicked(clickedRow+1,clickedColumn-1)
-                    clicked(clickedRow+1,clickedColumn+1)
+                    clicked(clickedRow-1,clickedColumn);
+                    clicked(clickedRow+1,clickedColumn);
+                    clicked(clickedRow,clickedColumn-1);
+                    clicked(clickedRow,clickedColumn+1);
+                    clicked(clickedRow-1,clickedColumn-1);
+                    clicked(clickedRow-1,clickedColumn+1);
+                    clicked(clickedRow+1,clickedColumn-1);
+                    clicked(clickedRow+1,clickedColumn+1);
                 }
-                map[clickedRow][clickedColumn].isOpen=true;
+                map[clickedRow][clickedColumn].isOpen=true; // 0 dışındaki sayılar için
                 if (map[clickedRow][clickedColumn].value !==-1){
+                    score += map[clickedRow][clickedColumn].value;
                     changeSquare(clickedRow,clickedColumn);
                 }
             }
             return null;
         }
 
+        const showTheMines = () =>{
+            for (let i = 0; i < rowCount; i++) {
+                for (let j = 0; j < colCount; j++) {
+                    if(map[i][j].value === -1){
+                        context.fillStyle = '#8B0000';
+                        context.font = "bold 12px Arial";
+                        context.textAlign = "center";
+                        context.textBaseline = "middle";
+                        context.fillText('\u2734', j * blockPixelSize + blockPixelSize / 2, i * blockPixelSize + blockPixelSize / 2);
+                    }
+                }
+            }
+        }
 
         function randomInt(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
@@ -147,16 +161,17 @@ const Game = () => {
             const clickedCol = Math.floor(mouseX / blockPixelSize);
             const clickedRow = Math.floor(mouseY / blockPixelSize);
 
-            return clicked(clickedRow, clickedCol);
+            score = 0
+            clicked(clickedRow, clickedCol);
+            /*Bu fonksiyonu kullandığım zaman useState tekrar çalışıyor ve ekran sıfırlanıyor.
+            en kötü ihtimalle bilgileri bir yerde tutup ekranı ona göre baştan bastıracak bir sistem ile bunu çözerim
+            initializeGame fonksiyonu değişir. onu dışarı alırım draw fonksiyonu baştan yazılır. fillmap use state dışında yapılır. */
+            
+            //setTotalScore((prevTotalScore) => prevTotalScore + score);
 
         };
 
-        // mode değişikliği
-
         const changeSquare = (row, col) => { // Tıklanan kareye yapılacak olan işlem
-            // row, col değerleri istenecek. işlem yapılacak kare için
-            // arrayden o kareneni değerleri çekilecek
-            // mode istenecek karelere flag koymak için
 
             context.fillStyle = lineColor;
             context.font = "bold 12px Arial";
@@ -183,18 +198,28 @@ const Game = () => {
         }
 
         initializeGame();
-    });
+    },[totalScore]);
 
+
+    const mainStyle = 'mainStyle'
+    const informationBox = 'information-box'
     return (
 
         <main className={mainStyle}>
             {/* HTML/JSX for rendering the game */}
-            <canvas
-                id="board"
-                width={500}
-                height={500}
-                style={gameStyle}
-            ></canvas>
+            <div>
+                <canvas
+                    id="board"
+                    width={500}
+                    height={500}
+                    style={gameStyle}
+                ></canvas>
+                <aside id={informationBox}>
+                    <p>Score: {totalScore}</p>
+
+                </aside>
+            </div>
+
         </main>
     );
 };
