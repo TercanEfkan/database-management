@@ -14,30 +14,36 @@ const MainMenu = ({userID}) => {
     return (
         <div className={bodyStyle}>
 
-            <div className="block-text">
-                <span className={purple}>B</span>
-                <span className={green}>L</span>
-                <span className={yellow}>O</span>
-                <span className={orange}>C</span>
-                <span className={red}>K</span>
-                <span className={blue}>S</span>
-            </div>
+            <p className="block-text">
+                <span className={purple}>G</span>
+                <span className={green}>A</span>
+                <span className={yellow}>M</span>
+                <span className={orange}>E</span>
+                <span> </span>
+                <span className={red}>S</span>
+                <span className={blue}>P</span>
+                <span className={purple}>A</span>
+                <span className={green}>C</span>
+                <span className={orange}>E</span>
+            </p>
 
-                <a className={myButton} href="/Game">
-                    Play
+            <a className={myButton} href="/Game">
+                Blocks
+            </a>
+
+            <a className={myButton} href="/MineSweeper">
+                Mine Sweeper
+            </a>
+
+            <a className={myButton} href="/leaderBoard">
+                Leader Board
+            </a>
+
+            {userID !== -1 ? (
+                <a className={myButton} href="/Profile">
+                    Profile
                 </a>
-
-                <a className={myButton} href="/leaderBoard">
-                    LeaderBoard
-                </a>
-
-                {userID !== -1 ? (
-                    <a className={myButton} href="/Profile">
-                        Profile
-                    </a>
-                ) : null}
-
-
+            ) : null}
         </div>
     );
 };

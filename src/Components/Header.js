@@ -4,18 +4,22 @@ const Header = ({userID}) => {
     console.log(userID + " header");
     // Kullanılacak Style lar atandı.
     const headerStyle = 'headerStyle';
-    const titleStyle = 'titleStyle';
+    const siteNameStyle = 'site-name-style';
     const myButton = 'myButton';
     const headerButtons = 'headerButtons';
+    const IDStyle = 'id-style'
 
     return (
 
         <header className={headerStyle}>
-            {userID===-1 ? ( // Login yapılmamış durum
-                <h1 className={titleStyle}>BLOCKS</h1>
-            ) : ( //Login yapılmış durum
-                <h1 className={titleStyle}>{userID}</h1>
-            )}
+            <h1>
+                <a href="/" id={siteNameStyle}>
+                    GAME SPACE
+                </a>
+            </h1>
+            {userID===1 ? ( // Login yapılmamış durum
+                <p id={IDStyle}>User ID: {userID}</p>
+            ) : null}
             <div className={headerButtons}>
 
                 <a className={myButton} href="/">
@@ -40,9 +44,6 @@ const Header = ({userID}) => {
 
                 <a className={myButton} href="/about">
                         About Us
-                </a>
-                <a className={myButton} href="/minesweeper">
-                    Minesweeper
                 </a>
             </div>
         </header>
