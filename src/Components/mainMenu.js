@@ -4,27 +4,21 @@ const MainMenu = ({userID}) => {
 
     const bodyStyle = 'bodyStyle'
     const myButton = 'myButton'
-    const red = 'redColor';
-    const blue = 'blueColor';
-    const green = 'greenColor';
-    const yellow = 'yellowColor';
-    const purple = 'purpleColor';
-    const orange = 'orangeColor';
 
     return (
         <div className={bodyStyle}>
 
             <p className="block-text">
-                <span className={purple}>G</span>
-                <span className={green}>A</span>
-                <span className={yellow}>M</span>
-                <span className={orange}>E</span>
+                <span style={{color: 'purple'}}>G</span>
+                <span style={{color: 'green'}}>A</span>
+                <span style={{color: 'yellow'}}>M</span>
+                <span style={{color: 'orange'}}>E</span>
                 <span> </span>
-                <span className={red}>S</span>
-                <span className={blue}>P</span>
-                <span className={purple}>A</span>
-                <span className={green}>C</span>
-                <span className={orange}>E</span>
+                <span style={{color: 'red'}}>S</span>
+                <span style={{color: 'blue'}}>P</span>
+                <span style={{color: 'purple'}}>A</span>
+                <span style={{color: 'green'}}>C</span>
+                <span style={{color: 'orange'}}>E</span>
             </p>
 
             <a className={myButton} href="/Game">

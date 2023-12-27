@@ -17,9 +17,9 @@ const Header = ({userID}) => {
                     GAME SPACE
                 </a>
             </h1>
-            {userID===1 ? ( // Login yapılmamış durum
+            {userID!==-1 ? ( // Login yapılmamış durum
                 <p id={IDStyle}>User ID: {userID}</p>
-            ) : null}
+            ): null}
             <div className={headerButtons}>
 
                 <a className={myButton} href="/">

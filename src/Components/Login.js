@@ -70,7 +70,7 @@ function LogIn({setUserID, userID}) {
 }
 
 const textStyle = {
-    fontSize: '1.5em',
+    fontSize: '1vw',
     color: '#67f',
 };
 
@@ -78,19 +78,9 @@ const textBoxStyle = {
     width: '15vw',
     height: '2vw',
     backgroundColor: '#333',
-    fontSize: '1.5em',
+    fontSize: '1vw',
     marginLeft: '1vw',
     marginBottom: '1vw',
-};
-
-const buttonStyle = {
-    fontSize: '1.5em',
-    width: '22vw',
-    height: '2vw',
-    textDecoration: 'none',
-    marginBottom: '5px',
-    color: '#000000',
-    background: 'linear-gradient(to right, #202020, #404040)',
 };
 
 export default LogIn;

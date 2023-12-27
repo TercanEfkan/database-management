@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import './Styles.css'
+import axios from "axios";
 
-const Game = () => {
+const Game = ({userID}) => {
     let rectColor = "white";
     const blockSize = 25;
     const rows = 20;
@@ -26,7 +27,24 @@ const Game = () => {
     let board;
     let context;
     // ... (rest of the variables)
-
+    const handleSubmit = async () => {
+        try {
+            // Send a POST request to your backend
+            const response = await axios.post('http://localhost:3001/post-game', {
+                userID,
+                score,
+                timeSpent
+            });
+            alert(response.data['message']);
+            if (response.data['success']){
+                alert('Your Score is Saved');
+            }
+            // Handle success, update UI or show a success message
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle error, show an error message to the user
+        }
+    };
     useEffect(() => {
         const audio = new Audio('./sfx/start.mp3');
         //audio.play();
@@ -304,6 +322,8 @@ const Game = () => {
                             }
                             if(blocks.length === 0){
                                 alert("Game Over! Your Score: " + score);
+                                //Database
+                                handleSubmit();
                             }
                         }
                     }
@@ -440,24 +460,10 @@ const Game = () => {
         };
     });
 
-    const purpleColor = classNames('rectStyle', 'purpleBackgroundColor');
-    const greenColor = classNames('rectStyle', 'greenBackgroundColor');
-    const redColor = classNames('rectStyle', 'redBackgroundColor');
-    const yellowColor = classNames('rectStyle', 'yellowBackgroundColor');
-    const orangeColor = classNames('rectStyle', 'orangeBackgroundColor');
     const mainStyle = 'mainStyle'
 
     return (
         <main className={mainStyle}>
-
-            <div>
-                <div className={redColor}></div>
-                <div className={orangeColor}></div>
-                <div className={yellowColor}></div>
-                <div className={greenColor}></div>
-                <div className={purpleColor}></div>
-            </div>
-
             {/* HTML/JSX for rendering the game */}
                 <canvas
                 id="board"

@@ -128,13 +128,4 @@ const textBoxStyle = {
     marginBottom: '1vw',
 };
 
-const buttonStyle = {
-    width: '22vw',
-    height: '2vw',
-    textDecoration: 'none',
-    marginBottom: '5px',
-    color: '#000000',
-    background: 'linear-gradient(to right, #202020, #404040)',
-};
-
 export default SignUp;

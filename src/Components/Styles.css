@@ -8,9 +8,9 @@
     align-items: center;
     padding-top: 3vh;
     width: 50vw;
-    height: 60vh;
+    height: 60vw;
     color: #000000;
-    border: 10px solid grey;
+    border: 0.5vw solid grey;
     background: linear-gradient(to bottom right, #600, #036);
 }
 
@@ -22,50 +22,9 @@
     margin-top: 3vh;
     margin-bottom: 4vh;
     display: inline-block;
-    font-size: 11vh;
+    font-size: 5vw;
 }
 
-.redColor {
-    color: red;
-}
-.redBackgroundColor {
-    background-color: red;
-}
-
-.blueColor {
-    color: blue;
-}
-.blueBackgroundColor {
-    background-color: blue;
-}
-
-.greenColor {
-    color: green;
-}
-.greenBackgroundColor {
-    background-color: green;
-}
-
-.yellowColor {
-    color: yellow;
-}
-.yellowBackgroundColor {
-    background-color: yellow;
-}
-
-.purpleColor {
-    color: purple;
-}
-.purpleBackgroundColor {
-    background-color: purple;
-}
-
-.orangeColor {
-    color: orange;
-}
-.orangeBackgroundColor {
-    background-color: orange;
-}
 
 .mainStyle{
     display: flex;
@@ -89,27 +48,29 @@
 
 .headerStyle{
     width: 98vw;
-    margin-bottom: 10px;
+    height: 5vw;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
     background: linear-gradient(to right, #252525, #555555);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.7%;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 1vw;
+    box-shadow: 0 0.3vh 0.3vh rgba(0, 0, 0, 0.2);
 }
 
 #site-name-style{
     text-decoration: none;
     display: flex;
     margin: 0;
-    padding: 10px 0;
-    font-size: 24px;
+    padding: 1vw 0;
+    font-size: 1.5vw;
     color: yellow;
 }
 #id-style{
-    font-size: 15px;
+    font-size: 1vw;
 }
 
 .headerButtons {
@@ -119,25 +80,26 @@
 
 }
 
-.myButton{
-
+.myButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color: white;
     background-color: #333333;
-    padding: 10px 40px;
-    margin: 1vw 5px;
-    border-radius: 10px;
-    letter-spacing: 2px; /*Harfler arasındaki boşluk*/
+    margin: 1vh 1vw;
+    border-radius: 0.6vw;
+    letter-spacing: 0.1vw;
     font-weight: bold;
-    border-color: #555555 #222222 #222222 #555555;  /*butona basma hissiyatı için renklendirme*/
-    border-width: 0.7vh;
+    border-color: #555555 #222222 #222222 #555555;
+    border-width: 0.4vw;
     border-style: solid;
-    transition: all 0.3s; /*geçiş efekti süresi*/
+    transition: all 0.3s;
     width: 10vw;
     height: 2.3vw;
-    font-size:1.5vh
-
+    font-size: 1vw;
 }
+
 .myButton:hover{
     background-color: #222222;
 }

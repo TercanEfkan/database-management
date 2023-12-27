@@ -22,10 +22,7 @@ const MainMenu = () => {
                 </div>
                 <div style={informationBoxStyle}>
                     <h1 style={h1Style}>Efkan Kıraç Tercan</h1>
-                    <p> Efkan Kıraç Tercan, a name resonating in the computer world, is recognized
-                        as a genius pushing the boundaries of software. With both technical expertise and outstanding
-                        interpersonal skills, this software maestro is frequently discussed in the industry. While he
-                        dances with codes on one hand, he conquers the hearts of girls on the other.</p>
+                    <p> Efkan Kıraç Tercan, Developper and team manager of this website. </p>
                 </div>
             </div>
 

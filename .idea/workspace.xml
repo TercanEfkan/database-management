@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49d365c6-9899-4f1b-85ad-647ca63dfa9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/0.pack" afterDir="false" />
@@ -22,65 +23,14 @@
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/core/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/core/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/generators/typescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/generators/typescript.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/generators/typescript.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/generators/typescript.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/printer.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/printer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/lib/printer.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/lib/printer.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/generator/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/generator/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/filter-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/filter-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/filter-items.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/filter-items.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/options.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/options.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/targets.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/targets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/targets.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/lib/targets.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-compilation-targets/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/features.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/features.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/features.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/features.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-create-class-features-plugin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.browser.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.browser.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.browser.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.browser.mjs.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.node.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.node.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.node.mjs.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/esm/index.node.mjs.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helper-define-polyfill-provider/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers-generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers-generated.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers-generated.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers-generated.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2203R.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2203R.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2203R.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2203R.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2301.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2301.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2301.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2301.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2305.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2305.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2305.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/applyDecs2305.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/checkInRHS.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/checkInRHS.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/using.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/using.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/using.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/lib/helpers/using.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/helpers/scripts/generate-helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/helpers/scripts/generate-helpers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/parser/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/lib/transformer-2023-05.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/lib/transformer-2023-05.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/lib/transformer-2023-05.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/lib/transformer-2023-05.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-proposal-decorators/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/lib/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/lib/index.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-for-of/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Game.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/MineSweeper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MineSweeper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/aboutUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/aboutUs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/mainMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
