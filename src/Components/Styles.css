@@ -48,15 +48,14 @@
 
 .headerStyle{
     width: 98vw;
-    height: 5vw;
-    margin-bottom: 1vh;
+    height: 10vh;
     margin-top: 1vh;
     background: linear-gradient(to right, #252525, #555555);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.7%;
+    padding: 0.7vh;
     border-radius: 1vw;
     box-shadow: 0 0.3vh 0.3vh rgba(0, 0, 0, 0.2);
 }

@@ -102,3 +102,27 @@ app.post('/post-game', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+app.post('/leader-board', async (req, res) => {
+    try {
+        const pool = await poolPromise;
+        const request = pool.request();
+        // Example query to insert data into a table
+        const topSevenRequest = await request.query(`SELECT TOP 7 UserID, Score  FROM dbo.HighScores ORDER BY Score DESC`);
+        const topSevenInfo = [];
+        if (topSevenRequest.recordset.length === 7) {
+            for (let i = 0; i< 7; i++ ){
+                const indexUID = topSevenRequest.recordset[i]['UserID'];
+                const uid = await request.query(`SELECT Username FROM dbo.Login WHERE UserID ='${indexUID}'`);
+                const indexUsername = uid.recordset[0]['Username'];
+                const uinfo = {username: indexUsername, score: topSevenRequest.recordset[i]['Score']};
+                topSevenInfo.push(uinfo);
+            }
+            console.log(topSevenInfo);
+            res.status(201).json(topSevenInfo);
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});

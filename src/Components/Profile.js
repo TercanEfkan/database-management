@@ -41,8 +41,6 @@ const Profile = () => {
         </div>
     );
 };
-
-const articleNumber = 4
 const pStyle={ // textler kutunun ortasından yazmaya başlıyordu. soldan başlaması için yapıldı
     float: 'left',
 };
@@ -51,7 +49,7 @@ const titleStyle ={
     width: '33%', // kutunun kapladığı alan paddinge dikkat değişirse buda değişmeli
     height: '90%',
     float: 'left',
-    padding: '3px', // width i bozuyor değiştirirken dikkat
+    padding: '0.2vw', // width i bozuyor değiştirirken dikkat
 };
 
 const informationTextStyle ={
@@ -59,23 +57,23 @@ const informationTextStyle ={
     width: '64%', // kutunun kapladığı alan paddinge dikkat değişirse buda değişmeli
     height: '90%',
     float: 'left',
-    padding: '3px', // width i bozuyor değiştirirken dikkat
+    padding: '0.1vw', // width i bozuyor değiştirirken dikkat
 };
 
 const container ={ //
     backgroundColor: '#333',
-    height: (300/articleNumber),
+    height: '10vh',
 };
 const middleStyle = {
 
-    padding: '10px',
+    padding: '1vw',
     margin: '0 auto', // x eksenine göre ortalar
     width: '45vw',
-    height: '30vw',
+    height: '60vh',
     backgroundColor: '#232323',
     color: '#000000',
-    fontSize: '1rem',
-    border: '10px solid grey',
+    fontSize: '1vw',
+    border: '0.7vw solid grey',
 };
 
 export default Profile;
