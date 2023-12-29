@@ -91,8 +91,7 @@ const informationBoxStyle = {
 const h1Style = {
     textDecoration: 'underline',
     fontWeight: 'bold',
-    fontsize: '10px', // Her nedense büyüklüğü ayarlamama izin vermedi
-};
+    fontsize: '10px',};
 
 
 

@@ -2,33 +2,30 @@ import React, { useState } from 'react';
 import axios from "axios";
 import './Styles.css';
 
-
-function LogIn({setUserID, userID}) {
+function LogIn({ setUserID, userID }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const bodyStyle = 'bodyStyle'
+    const bodyStyle = 'bodyStyle';
 
-    const handleInputChangeUsername = (e) => {setUsername(e.target.value);};
-    const handleInputChangePassword = (e) => {setPassword(e.target.value);};
+    const handleInputChangeUsername = (e) => { setUsername(e.target.value); };
+    const handleInputChangePassword = (e) => { setPassword(e.target.value); };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Send a POST request to your backend
             const response = await axios.post('http://localhost:3001/login', {
                 username,
                 password,
             });
             alert(response.data['message']);
-            if (response.data['success']){
+            if (response.data['success']) {
                 setUserID(response.data['userid']);
                 window.location.href = '/';
             }
-            // Handle success, update UI or show a success message
         } catch (error) {
             console.error('Error:', error);
-            // Handle error, show an error message to the user
         }
     };
+
     return (
         <div className={bodyStyle}>
             <h2 style={textStyle}>Log In</h2>
@@ -57,7 +54,7 @@ function LogIn({setUserID, userID}) {
                         />
                     </label>
                 </div>
-                <div> {/* Container for stacking elements */}
+                <div>
                     <button type="submit" className="myButton">
                         Log In
                     </button>
@@ -65,8 +62,6 @@ function LogIn({setUserID, userID}) {
             </form>
         </div>
     );
-
-
 }
 
 const textStyle = {

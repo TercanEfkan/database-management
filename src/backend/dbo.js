@@ -6,7 +6,7 @@ const config = {
     user: 'labradordali',
     password: '104146eK!',
     options: {
-        encrypt: true, // For Azure SQL
+        encrypt: true,
         trustServerCertificate: false,
     },
 };

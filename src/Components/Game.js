@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import classNames from 'classnames';
 import './Styles.css'
 import axios from "axios";
 
@@ -11,12 +10,9 @@ const Game = ({userID}) => {
     const skillsOnBoard = [];
     let skillsAvailable = 1;
     let ballsOnBoard = [];
-    //let tableVelocity = 0;
     const tableColor = "blue";
     let direction = 0; // 0 for stationary, -1 for left, 1 for right
     const blocks = [];
-    /*var scoreParagraph = document.getElementById("score");
-    var timeParagraph = document.getElementById("time");*/
     let score = 0;
     let timeSpent = 0;
     const colors = ['red', 'blue', 'green', 'orange'];
@@ -26,7 +22,6 @@ const Game = ({userID}) => {
     let tableY = 450;
     let board;
     let context;
-    // ... (rest of the variables)
     const handleSubmit = async () => {
         try {
             // Send a POST request to your backend
@@ -39,10 +34,8 @@ const Game = ({userID}) => {
             if (response.data['success']){
                 alert('Your Score is Saved');
             }
-            // Handle success, update UI or show a success message
         } catch (error) {
             console.error('Error:', error);
-            // Handle error, show an error message to the user
         }
     };
     useEffect(() => {
@@ -50,12 +43,12 @@ const Game = ({userID}) => {
         //audio.play();
         const initializeGame = () => {
             board = document.getElementById("board");
-            context = board.getContext("2d"); //used for drawing on the board
+            context = board.getContext("2d");
             fillBlocks();
             document.addEventListener("keydown", go);
             document.addEventListener("keyup", stop);
             ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 0));
-            setInterval(update, 1000 / 60); //100 milliseconds
+            setInterval(update, 1000 / 60);
         };
 
         const fillBlocks = () => {
@@ -103,7 +96,7 @@ const Game = ({userID}) => {
                 context.fillRect(x, y, blockSize - 20, blockSize - 20);
                 skill.row += 0.1;
                 if (skill.row > 21) {
-                    skillsOnBoard.splice(i, 1); // Remove the skill at index i
+                    skillsOnBoard.splice(i, 1);
                 }
             }
         };
@@ -157,32 +150,22 @@ const Game = ({userID}) => {
             else if (e.key === "1" && skillsAvailable % 2 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 1));
                 skillsAvailable = skillsAvailable / 2;
-                //rectangleElement = document.querySelector(".rectangle1");
-                //rectangleElement.style.backgroundColor = "darkred";
             }
             else if (e.key === "2" && skillsAvailable % 3 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 2));
                 skillsAvailable = skillsAvailable / 3;
-                //rectangleElement = document.querySelector(".rectangle2");
-               // rectangleElement.style.backgroundColor = "darkred";
             }
             else if (e.key === "3" && skillsAvailable % 5 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 3));
                 skillsAvailable = skillsAvailable / 5;
-                //rectangleElement = document.querySelector(".rectangle3");
-                //rectangleElement.style.backgroundColor = "darkred";
             }
             else if (e.key === "4" && skillsAvailable % 7 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 4));
                 skillsAvailable = skillsAvailable / 7;
-               // rectangleElement = document.querySelector(".rectangle4");
-                //rectangleElement.style.backgroundColor = "darkred";
             }
             else if (e.key === "5" && skillsAvailable % 11 === 0) {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
                 skillsAvailable = skillsAvailable / 11;
-               // rectangleElement = document.querySelector(".rectangle5");
-               // rectangleElement.style.backgroundColor = "darkred";
             }
             else if (e.key === " ") {
                 ballsOnBoard.push(new Ball(tableX + tableSize.x / 2, tableY - 5, 5));
@@ -232,7 +215,6 @@ const Game = ({userID}) => {
 
                 }
                 else {
-                    // Find the index of this ball in the ballsOnBoard array
                     const index = ballsOnBoard.indexOf(this);
 
                     if (index !== -1) {
@@ -273,7 +255,6 @@ const Game = ({userID}) => {
                 this.x += this.dx;
                 this.y += this.dy;
 
-                // check for collisions with the walls
                 if (this.x - this.radius < 0) {
                     this.x = this.radius;
                     this.dx = -this.dx;
@@ -282,7 +263,6 @@ const Game = ({userID}) => {
                     this.dx = -this.dx;
                 }
                 else {
-                    // check for collisions with blocks
                     let collidedBlockIndex = -1;
 
                     for (let i = 0; i < blocks.length; i++) {
@@ -303,10 +283,8 @@ const Game = ({userID}) => {
                         let x = block.col * blockSize;
 
                         if (this.x > x && this.x < x + blockSize) {
-                            // ball hit the top or bottom of the block
                             this.dy = -this.dy;
                         } else {
-                            // ball hit the left or right side of the block
                             this.dx = -this.dx;
                         }
 
@@ -334,7 +312,6 @@ const Game = ({userID}) => {
                 } else if (this.y > board.height) {
                     this.reset();
                 } else if (this.y + this.radius > tableY && this.y - this.radius < tableY + tableSize.y && this.x > tableX && this.x < tableX + tableSize.x) {
-                    // I want to run a sound here
                     let collisionPoint = (this.x - (tableX + tableSize.x / 2)) / (tableSize.x / 2);
                     this.dx = collisionPoint * 5;
                     this.dy = -Math.sqrt(25 - this.dx ** 2);
@@ -346,13 +323,9 @@ const Game = ({userID}) => {
         }
         const displaySkillsOnScreen = (skillsOnBoard) => {
             const skillsDisplay = document.getElementById('skillsDisplay');
-            skillsDisplay.innerHTML = ''; // Clear any previous content
-
+            skillsDisplay.innerHTML = '';
             skillsOnBoard.forEach(function () {
-                // Create a new paragraph for each skill and display its information
                 const skillInfo = document.createElement('p');
-
-                // Append the skill information to the display element
                 skillsDisplay.appendChild(skillInfo);
             });}
 
@@ -375,40 +348,33 @@ const Game = ({userID}) => {
                 }
                 if (collidedSkillIndex !== -1) {
                     const skl = skillsOnBoard.splice(collidedSkillIndex, 1);
-                   // var rectangleElement;
                     switch (skl[0].type) {
                         case 1:
-                           // rectangleElement = document.querySelector(".rectangle1");
                             if (skillsAvailable % 2 !== 0) {
                                 skillsAvailable = skillsAvailable * 2;
                             }
                             break;
                         case 2:
-                            //rectangleElement = document.querySelector(".rectangle2");
                             if (skillsAvailable % 3 !== 0) {
                                 skillsAvailable = skillsAvailable * 3;
                             }
                             break;
                         case 3:
-                            //rectangleElement = document.querySelector(".rectangle3");
                             if (skillsAvailable % 5 !== 0) {
                                 skillsAvailable = skillsAvailable * 5;
                             }
                             break;
                         case 4:
-                            //rectangleElement = document.querySelector(".rectangle4");
                             if (skillsAvailable % 7 !== 0) {
                                 skillsAvailable = skillsAvailable * 7;
                             }
                             break;
                         case 5:
-                            //rectangleElement = document.querySelector(".rectangle5");
                             if (skillsAvailable % 11 !== 0) {
                                 skillsAvailable = skillsAvailable * 11;
                             }
                             break;
                     }
-                    //rectangleElement.style.backgroundColor = "#50FF50";
                 }
                 drawSkills(skillsOnBoard, context);
             }
@@ -435,11 +401,11 @@ const Game = ({userID}) => {
             drawBlocks(blocks, context);
             updateSkills();
 
-            tableX += direction * 5; // move the table based on the direction of movement
+            tableX += direction * 5;
             if (tableX < 0) {
-                tableX = 0; // prevent the table from moving beyond the left border
+                tableX = 0;
             } else if (tableX + tableSize.x > board.width) {
-                tableX = board.width - tableSize.x; // prevent the table from moving beyond the right border
+                tableX = board.width - tableSize.x;
             }
             ballsOnBoard.forEach(function (ball) {
                 ball.draw(context);
@@ -447,16 +413,10 @@ const Game = ({userID}) => {
             })
         }
 
-        // ... (similarly refactor other functions)
-
-        initializeGame(); // Start the game
-
-        // Clean-up logic (similar to componentWillUnmount)
+        initializeGame();
         return () => {
             audio.pause();
             audio.src = '';
-            // Clear any intervals or event listeners
-            // ...
         };
     });
 
@@ -477,7 +437,6 @@ const Game = ({userID}) => {
 const gameStyle = {
     fontSize: '1%',
     border: '10px solid grey',
-    // Define border width, style, and color
     outline: 'none',
     marginLeft: '1%',
 };

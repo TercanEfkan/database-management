@@ -3,27 +3,24 @@ import axios from 'axios';
 import './Styles.css';
 
 const LeaderBoard = () => {
-    const [leaders, setLeaders] = useState([]); // Using state to manage leaders
-    // Fetch data function
+    const [leaders, setLeaders] = useState([]);
+
     const fetchData = async () => {
         try {
             const response = await axios.post('http://localhost:3001/leader-board', {});
-            setLeaders(response.data); // Update leaders state with fetched data
+            setLeaders(response.data);
         } catch (error) {
             console.error('Error:', error);
-            // Handle error, show an error message to the user
         }
     };
 
-    // useEffect to fetch data when the component mounts
     useEffect(() => {
-        fetchData(); // Fetch data when component mounts
-    }, []); // Empty dependency array ensures it runs only once (on mount)
+        fetchData();
+    }, []);
 
     return (
         <div className='bodyStyle' style={middleStyle}>
             <h1>LeaderBoard</h1>
-            {/* Render leaders data */}
             {leaders.map((leader, index) => (
                 <div
                     key={index}
@@ -40,7 +37,6 @@ const LeaderBoard = () => {
 
 };
 
-// Styling objects
 const informationTextStyle = {
     width: '100%',
     height: '10%',
