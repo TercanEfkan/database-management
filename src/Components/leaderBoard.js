@@ -4,11 +4,6 @@ import './Styles.css';
 
 const LeaderBoard = () => {
     const [leaders, setLeaders] = useState([]); // Using state to manage leaders
-
-    const bodyStyle = 'bodyStyle';
-    const leaderboardStyle = 'leaderBoard';
-    const combinedClasses = `${bodyStyle} ${leaderboardStyle}`;
-
     // Fetch data function
     const fetchData = async () => {
         try {
@@ -26,7 +21,7 @@ const LeaderBoard = () => {
     }, []); // Empty dependency array ensures it runs only once (on mount)
 
     return (
-        <div className={combinedClasses} style={middleStyle}>
+        <div className='bodyStyle' style={middleStyle}>
             <h1>LeaderBoard</h1>
             {/* Render leaders data */}
             {leaders.map((leader, index) => (

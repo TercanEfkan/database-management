@@ -12,10 +12,7 @@
     color: #000000;
     border: 0.5vw solid grey;
     background: linear-gradient(to bottom right, #600, #036);
-}
-
-.leaderBoard{
-
+    margin-top: 3vh;
 }
 
 .block-text {

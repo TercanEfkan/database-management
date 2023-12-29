@@ -3,6 +3,7 @@ const { sql, poolPromise } = require('./dbo'); // Import the database connection
 const app = express();
 const PORT = process.env.PORT || 3001;
 var cors = require('cors')
+const {useState} = require("react");
 app.use(express.json());
 
 // Your routes will go here
@@ -120,6 +121,36 @@ app.post('/leader-board', async (req, res) => {
             console.log(topSevenInfo);
             res.status(201).json(topSevenInfo);
         }
+
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+app.post('/profile', async (req, res) => {
+    try {
+
+        const userid = req.body.userid;
+
+        console.log('userid: ' + userid + ' Type:' + typeof(userid) );
+        if (parseInt(userid) !== -1) {
+            const pool = await poolPromise;
+            const request = pool.request();
+
+            const requestData = await request.query(`SELECT Username, FirstName FROM dbo.Login WHERE UserID = ${userid}`);
+            const username = requestData.recordset[0]['Username'];
+            const firstname = requestData.recordset[0]['FirstName'];
+            const requestHS = await request.query(`SELECT Score FROM dbo.HighScores WHERE UserID = ${userid}`);
+            const score = (requestHS.recordset.length > 0) ?  requestHS.recordset[0]['Score'] : 0;
+
+            const data = {score: score, username: username, firstname: firstname, success: true};
+            console.log(data);
+            res.status(201).json(data);
+        }
+        else{
+            res.status(201).json({success: false, message: 'You are not logged in'});
+        }
+
 
     } catch (error) {
         console.error('Error:', error);

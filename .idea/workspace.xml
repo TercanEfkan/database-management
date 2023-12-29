@@ -5,26 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="49d365c6-9899-4f1b-85ad-647ca63dfa9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.YnVpbGQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/browserslist" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/browserslist.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/eslint" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/eslint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/eslint.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/eslint.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sucrase" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sucrase" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sucrase-node" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sucrase-node" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sucrase-node.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sucrase-node.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/sucrase.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/sucrase.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwind" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwind" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwind.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwind.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwindcss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwindcss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tailwindcss.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/terser.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/terser.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tsc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tsc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tsc.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tsc.ps1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tsserver" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tsserver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/tsserver.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/tsserver.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/0.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/1.pack" afterDir="false" />
@@ -36,19 +17,10 @@
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/babel-7/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/babel-7/index.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/babel-7/polyfills.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/babel-7/polyfills.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/core-js.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/core-js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/get-runtime-path/browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/get-runtime-path/browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/get-runtime-path/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@babel/plugin-transform-runtime/lib/get-runtime-path/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/leaderBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/leaderBoard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,23 +52,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/enes/Documents/GitHub/database-management&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/enes/Documents/GitHub/database-management",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.5\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -118,7 +91,7 @@
       <workItem from="1703715300977" duration="957000" />
       <workItem from="1703813452692" duration="664000" />
       <workItem from="1703867938212" duration="2629000" />
-      <workItem from="1703873221960" duration="3640000" />
+      <workItem from="1703873221960" duration="9380000" />
     </task>
     <servers />
   </component>
