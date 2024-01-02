@@ -31,8 +31,8 @@ const MainMenu = () => {
                     <a href={enesLink} target="_blank"> <img src={enesImg} alt="enes" style={imageStyle}/></a>
                 </div>
                 <div style={informationBoxStyle}>
-                    <h1 style={h1Style}>Unknown</h1>
-                    <p></p>
+                    <h1 style={h1Style}>M. Enes Karakulak</h1>
+                    <p>M. Enes Karakulak: Unknown</p>
                 </div>
             </div>
 
@@ -42,10 +42,7 @@ const MainMenu = () => {
                 </div>
                 <div style={informationBoxStyle}>
                     <h1 style={h1Style}>Rasim Efe Sazcı</h1>
-                    <p>Rasim Efe Sazcı's influence extends beyond the digital realm; he actively engages in
-                        community-building initiatives and shares his knowledge generously. Whether guiding
-                        fellow gamers or enlightening others with his vast knowledge, he is a true embodiment
-                        of a modern Renaissance individual.</p>
+                    <p>Rasim Efe Sazcı: Developper</p>
                 </div>
             </div>
 
@@ -55,9 +52,7 @@ const MainMenu = () => {
                 </div>
                 <div style={informationBoxStyle}>
                     <h1 style={h1Style}>Boran Haznedar</h1>
-                    <p>Boran Haznedar's allure extends beyond the tech world into the realms of a gourmet and wine aficionado.
-                        This unique combination makes him a figure of interest for both artificial intelligence enthusiasts
-                        and wine lovers alike.</p>
+                    <p>Boran Haznedar: Developper</p>
                 </div>
             </div>
         </div>

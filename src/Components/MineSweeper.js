@@ -10,6 +10,7 @@ let blockPixelSize = 25;
 const map = [];
 
 const Game = () => {
+    let flag = false;
     let [score, setScore] = useState(0);
     let [numberOfMineFlags, setNumberOfMineFlags] = useState(minesNumber);
     let [gameOver, setGameOver] = useState('');
@@ -30,22 +31,26 @@ const Game = () => {
     };
 
     const handleRightClick = (event) => {
-        event.preventDefault();
-        let gameAreaBorderSize = 10;
-        const mouseX = event.clientX - board.getBoundingClientRect().left - gameAreaBorderSize;
-        const mouseY = event.clientY - board.getBoundingClientRect().top - gameAreaBorderSize;
-        const clickedCol = Math.floor(mouseX / blockPixelSize);
-        const clickedRow = Math.floor(mouseY / blockPixelSize);
-        flagSquare(clickedRow, clickedCol);
+        if (!flag){
+            event.preventDefault();
+            let gameAreaBorderSize = 10;
+            const mouseX = event.clientX - board.getBoundingClientRect().left - gameAreaBorderSize;
+            const mouseY = event.clientY - board.getBoundingClientRect().top - gameAreaBorderSize;
+            const clickedCol = Math.floor(mouseX / blockPixelSize);
+            const clickedRow = Math.floor(mouseY / blockPixelSize);
+            flagSquare(clickedRow, clickedCol);
+        }
     };
 
     const handleSquareClick = (event) => {
-        let gameAreaBorderSize = 10;
-        const mouseX = event.clientX - board.getBoundingClientRect().left - gameAreaBorderSize;
-        const mouseY = event.clientY - board.getBoundingClientRect().top - gameAreaBorderSize;
-        const clickedCol = Math.floor(mouseX / blockPixelSize);
-        const clickedRow = Math.floor(mouseY / blockPixelSize);
-        clicked(clickedRow, clickedCol);
+        if (!flag){
+            let gameAreaBorderSize = 10;
+            const mouseX = event.clientX - board.getBoundingClientRect().left - gameAreaBorderSize;
+            const mouseY = event.clientY - board.getBoundingClientRect().top - gameAreaBorderSize;
+            const clickedCol = Math.floor(mouseX / blockPixelSize);
+            const clickedRow = Math.floor(mouseY / blockPixelSize);
+            clicked(clickedRow, clickedCol);
+        }
     };
 
     const changeSquare = (row, col) => {
@@ -81,6 +86,7 @@ const Game = () => {
         if(0<=clickedRow && clickedRow<rowCount && 0<=clickedColumn && clickedColumn<colCount && map[clickedRow][clickedColumn].isOpen===false && map[clickedRow][clickedColumn].flag===false){
             if (map[clickedRow][clickedColumn].value === -1){
                 showTheMines();
+                flag = true;
                 setGameOver('Game Over');
             }
             if (map[clickedRow][clickedColumn].value === 0){
